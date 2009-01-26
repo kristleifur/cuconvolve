@@ -1,0 +1,14 @@
+
+void ComplexMAdd( float *r_real, float *r_imag,
+                  const float *a_real, const float *a_imag,
+                  const float *b_real, const float *b_imag,
+                  int n )
+{
+  for ( int i = 0; i <  n; i++ )
+  {
+    r_real[i] += a_real[i]*b_real[i] - a_imag[i]*b_imag[i];
+    r_imag[i] += a_imag[i]*b_real[i] + a_real[i]*b_imag[i];
+  }
+}
+
+
