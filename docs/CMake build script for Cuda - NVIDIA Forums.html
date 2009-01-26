@@ -1,0 +1,2407 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+
+	
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>NVIDIA Forums [Powered by Invision Power Board]</title>
+		<style type="text/css">
+	/*  
+ * Cascading Style Sheet(CSS 467), for Invision Power Board 2.2.0
+ * Author: James A. Mathias, admin@leihu.com, http://www.1lotus.com 
+ * Copyright: 2005 Invision Power Services, all rights reserved 
+ *
+ * All style attributes in alpha-numeric order starting from 0
+ *
+ */
+
+/* 
+ * ========================================
+ * global element styles 
+ * ========================================
+ */
+
+html{
+	overflow-x: auto; /* fixes MSIE scrollbar bug DO NOT REMOVE, has no effect in Mozilla, or Opera */
+}
+
+body{ 
+	background: #FFF;
+	color: #222;
+	font-family: Verdana, Tahoma, Arial, Trebuchet MS, Sans-Serif, Georgia, Courier, Times New Roman, Serif;
+	font-size: 11px;
+	line-height: 135%;
+	margin: 0px;
+	padding: 0px; /* required for Opera to have 0 margin */
+	text-align: center; /* centers board in MSIE */
+}
+
+/* 
+ * ========================================
+ * Set up IPB table
+ * ========================================
+ */
+ 
+.ipbtable { width:100% }
+
+table.ipbtable,
+tr.ipbtable,
+td.ipbtable
+{ /* required for text in tables, because tables do not inherit from body */
+	background: transparent;
+	color: #222;
+	font-size: 11px;
+	line-height: 135%;
+}
+
+.ipbtable td,
+.divpad{ /* gives all tables faux cellpadding of 5px */
+	padding: 5px;
+}
+
+td.nopad{ /* allows some tables to have no padding on the td */
+	padding: 0;
+}
+
+/* Safari... */
+th
+{
+	text-align: left;
+}
+
+
+form{
+	display: inline;
+	margin: 0; /* removes mystery form tag gapping */
+	padding: 0; /* removes mystery form tag gapping */
+}
+
+img{
+	border: 0; /* makes sure linked images do not have a border */
+	vertical-align: middle;
+}
+
+/* 
+ * ========================================
+ * global hyperlink styles 
+ * ========================================
+ */
+
+a:link,
+a:visited,
+a:active{
+	background: transparent;
+	color: #222;
+	text-decoration: underline;
+}
+
+a:hover{
+	background: transparent;
+	color: #34498B;
+}
+
+/* 
+ * ========================================
+ * Main wrapper, this controls the overall width of the board in you browser view window. 
+ * ========================================
+ */
+
+#ipbwrapper{ 
+	margin: 20px auto 20px auto; /* centers the box, no matter the overall width, also applies a 20px gap at the top and bottom of the board */
+	text-align: left; /* re_aligns text to left second part of two part MSIE centering workaround */
+	/* EDIT THIS TO CHANGE THE WIDTH OF THE BOARD -> 960px is a common fixed resolution size */
+	width: 98%;
+}
+
+/* 
+ * ========================================
+ * styles for pagination links 
+ * ========================================
+ */
+ 
+
+.pagelink,
+.pagelinklast,
+.pagecurrent,
+.minipagelink,
+.minipagelinklast{
+	background: #FBFBFB;
+	border: 1px solid #A2A2A2;
+	padding: 1px 3px 1px 3px;
+}
+
+.pagelinklast,
+.minipagelinklast{
+	background: #F7F7F7;
+}
+
+
+.pagecurrent{
+	background: #FFC9A5;
+}
+
+.minipagelink,
+.minipagelinklast{
+	border: 1px solid #DBDBDB;
+	font-size: 10px;
+	margin: 0 1px 0 0;
+}
+
+.pagelink a:active,
+.pagelink a:visited,
+.pagelink a:link,
+.pagelinklast a:active,
+.pagelinklast a:visited,
+.pagelinklast a:link,
+.pagecurrent a:active,
+.pagecurrent a:visited,
+.pagecurrent a:link,
+.minipagelink a:active,
+.minipagelink a:visited,
+.minipagelink a:link,
+.minipagelinklast a:active,
+.minipagelinklast a:visited,
+.minipagelinklast a:link{
+	text-decoration: none;
+}
+
+/* fake button effect for some links */
+.fauxbutton{
+	background: #BFCDE0;
+	border: 1px solid #b4b4b4;
+	font-size: 11px;
+	font-weight: bold;
+	padding: 4px;
+}
+
+.fauxbutton a:link,
+.fauxbutton a:visited,
+.fauxbutton a:active{
+	color: #222 !important;
+	text-decoration: none;
+}
+
+.forumdesc,
+.forumdesc a:link,
+.forumdesc a:visited,
+.forumdesc a:active{ 
+	background: transparent;
+	font-size: 10px; 
+	color: #666;
+	line-height: 135%;
+	margin: 2px 0 0 0;
+	padding: 0;
+}
+
+/* =================================================================================== */
+/* =================================================================================== */
+/* =================================================================================== */
+
+.searchlite {
+	background-color:yellow;
+	font-weight:bold;
+	color: red;
+}
+
+.activeusers{
+	background: #FFF;
+	border: 1px solid #B4B4B4;
+	color: #000;
+	margin: 0px;
+	padding: 1px;
+}
+
+.activeuserposting a:link,
+.activeuserposting a:visited,
+.activeuserposting a:active,
+.activeuserposting
+{
+	font-style:italic;
+	text-decoration: none;
+	border-bottom:1px dotted black;
+}
+
+fieldset.search{ 
+	line-height: 150%;
+	padding: 6px; 
+}
+
+label{ 
+	cursor: pointer; 
+}
+
+img.attach{ 
+	background: #808080 url(style_images/cudazone/click2enlarge.gif) no-repeat top right;
+	border: 1px solid #808080;
+	margin: 0 2px 0 0;
+	padding: 11px 2px 2px 2px;
+}
+
+.thumbwrap,
+.thumbwrapp,
+.fullimagewrap
+{
+	border: 1px solid #B4B4B4;
+	margin: 2px;
+}
+
+.thumbwrapp{
+	border: 2px solid #660707;
+}
+
+.fullimagewrap{
+	background: #F7F7F7;
+	text-align: center;
+	margin: 5px 0 5px 0;
+	padding: 5px;
+}
+
+.thumbwrap h4,
+.thumbwrapp h4{	
+	background: #DDE6F2;
+	border: 0 !important;
+	border-bottom: 1px solid #525252 !important;
+	color: #525252; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0;
+	padding: 5px;
+}
+
+.thumbwrap p,
+.thumbwrapp p{
+	background: #F6F8F6 !important;
+	border: 0 !important;
+	border-top: 1px solid #525252 !important;
+	margin: 0 !important;
+	padding: 5px !important;
+	text-align: left;
+}
+
+.thumbwrap p.alt,
+.thumbwrapp p.alt{
+	background: #F7F7F7 !important;
+	margin: 0 !important;
+	padding: 5px !important;
+	text-align: left;
+}
+
+.thumbwrapp p.pin{
+	background: #EFDFDF !important;
+	text-align: center !important;
+}
+	
+.thumbwrap img.galattach,
+.thumbwrapp img.galattach{
+	background: #FFF url(style_images/cudazone/img_larger.gif) no-repeat bottom right;
+	border: 1px solid #B4B4B4;
+	margin: 5px;
+	padding: 2px 2px 10px 2px;
+}
+
+li.helprow{ 
+	margin: 0 0 10px 0;
+	padding: 0; 
+}
+
+ul#help{ 
+	padding: 0 0 0 15px; 
+}
+
+.warngood,
+.warnbad{ 
+	color: #0B9500;
+	font-weight: bold;
+}
+
+.warnbad{ 
+	color: #DD0000;
+}
+
+#padandcenter{ 
+	margin: 0 auto 0 auto;
+	padding: 14px 0 14px 0;
+	text-align: center;
+}
+
+#profilename{ 
+	font-size: 28px; 
+	font-weight: bold; 
+}
+
+#photowrap{ 
+	padding: 6px; 
+}
+
+#phototitle{ 
+	border-bottom: 1px solid #000; 
+	font-size: 24px; 
+}
+
+#photoimg{ 
+	margin: 15px 0 0 0;
+	text-align: center; 
+} 
+
+#ucpmenu,
+#ucpcontent{ 
+	background: #F7F7F7;
+	border: 1px solid #345487;
+	line-height: 150%;
+}
+
+#ucpmenu p{ 
+	margin: 0; 
+	padding: 2px 5px 6px 9px;
+}
+
+#ucpmenu a:link, 
+#ucpmenu a:active, 
+#ucpmenu a:visited{ 
+	text-decoration: none; 
+}
+
+#ucpcontent{ 
+	width: auto;
+}
+
+#ucpcontent p{ 
+	margin: 0;
+	padding: 10px;
+}
+
+.activeuserstrip{ 
+	background: #E2E1E1;
+	padding: 6px;
+}
+
+/* Topic View elements */
+.signature{  
+	background: transparent;
+	color: #339; 
+	font-size: 10px;
+	line-height: 150%;
+}
+
+.postdetails{ 
+	font-size: 10px;
+	line-height:140%;
+}
+
+.postcolor{ 
+	font-size: 12px; 
+	line-height: 160%;
+}
+
+.normalname{ 
+	color: #003;
+	font-size: 12px; 
+	font-weight: bold; 
+}
+
+.normalname a:link, 
+.normalname a:visited, 
+.normalname a:active{ 
+	font-size: 12px;
+}
+
+.post1,
+.bg1{ 
+	background: #F7F7F7;
+}
+
+.post2,
+.bg3{ 
+	background: #F6F8F6;
+}
+
+.row2shaded,
+.post1shaded { background-color: #DEDBE4 }
+.row4shaded,
+.post2shaded { background-color: #E3DFE7 }
+
+.row1{ 
+	background: #F7F7F7; 
+}
+
+.row2{ 
+	background: #F7F7F7; 
+}
+
+.rowhighlight{
+	background-color: #FFF9BA;
+}
+
+.darkrow1{ 
+	background: #E2E1E1;
+	color: #666666; 
+}
+
+.darkrow3{ 
+	background: #e7e6e6; 
+	color: #666666; 
+}
+
+/* tableborders gives the white column / row lines effect */
+.plainborder,
+.tablefill,
+.tablepad{ 
+	background: #f7f7f7;
+	border: 1px solid #345487;
+}
+
+.tablefill,
+.tablepad{ 
+	padding: 6px;  
+}
+
+.tablepad{ 
+	border: 0 !important;
+}
+
+.wrapmini{ 
+	float: left;
+	line-height: 1.5em;
+	width: 25%;
+}
+
+.pagelinks{
+	float: left;
+	line-height: 1.2em;
+	width: 35%;
+}
+
+.desc{ 
+	font-size: 11px; 
+	color: #434951;
+}
+
+.lastaction
+{
+	font-size: 10px; 
+	color: #434951;
+}
+
+.edit{ 
+	font-size: 9px;
+}
+
+.thin{ 
+	border: 1px solid #FFF;
+	border-left: 0;
+	border-right: 0;
+	line-height: 150%;
+	margin: 2px 0 2px 0;
+	padding: 6px 0 6px 0;
+}
+
+/* =================================================================================== */
+/* =================================================================================== */
+/* =================================================================================== */
+
+/* 
+ * ========================================
+ * calendar styles 
+ * ========================================
+ */
+	
+.calmonths{ 
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	font-size: 18px; 
+	font-weight: bold; 
+	margin: 5px 0 5px 0;
+	padding: 8px;
+	text-align: center;
+}
+
+.weekday{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.calmonths a{
+	text-decoration: none;
+}
+
+.calday,
+.calweekday{ 
+	background: #F7F7F7;
+	color: #666;
+	font-size: 11px;
+	font-weight: bold;
+	margin: 0;
+	padding: 4px;
+	text-align: right;
+}
+
+.calweekday{
+	border-right: 1px solid #AAA;
+	color: #222;
+	font-size: 14px;
+	padding: 6px;
+	text-align: center;
+}
+
+.celltodayshaded,
+.celldateshaded,
+.cellblank,
+.celldate,
+.celltoday,
+.mcellblank,
+.mcelldate,
+.mcelltoday{
+	background: #F6F8F6; 
+	height: 100px;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+
+.celltodayshaded,
+.celldateshaded
+{
+	background: #E3DFE7;
+}
+
+.mcellblank,
+.mcelldate,
+.mcelltoday{
+	height: auto;
+}
+
+.cellblank,
+.mcellblank{
+	background: #DBDBDB;
+}
+
+.celltoday,
+.celltodayshaded,
+.mcelltoday{
+	border: 2px solid #8B0000;
+}
+
+.calranged
+{
+	border: 2px outset #DBDBDB;
+	background: #DBDBDB;
+	padding:4px;
+}
+
+.calitem
+{
+	border-bottom: 1px dotted #DBDBDB;
+	padding:4px;
+}
+
+/* 
+ * ========================================
+ * form styles 
+ * ========================================
+ */
+
+.input-warn,
+.input-green,
+.input-checkbox,
+input,
+textarea,
+select{
+	background: #FFF;
+	border: 1px solid #D1D1D1;
+	color: #000;
+	font-family: verdana, helvetica, sans-serif;
+	font-size: 11px;
+	margin: 5px;
+	padding: 2px;
+	vertical-align: middle;
+}
+
+select
+{
+	margin: 0px;
+}
+
+.input-checkbox
+{
+	border: none;
+}
+
+.input-warn,
+.input-warn-content
+{
+	border: 1px solid #C00;
+}
+
+.input-ok,
+.input-ok-content
+{
+	border: 1px solid #0C0;
+}
+
+.input-warn-content
+{
+	padding: 4px;
+	margin: 4px;
+	background-color: #FCC;
+}
+
+.input-ok-content
+{
+	padding: 4px;
+	margin: 4px;
+	background-color: #CFC;
+}
+
+
+.input-text
+{
+	color: #900;
+}
+
+input.button{
+	margin: 0;
+	width: auto;
+	cursor: hand;
+	cursor: pointer;
+}
+
+optgroup option{
+	font-family: verdana, helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.codebuttons{ 
+	font-family: Verdana, Helvetica, Sans-Serif; 
+	font-size: 10px; 
+	vertical-align: middle;
+	margin:2px;
+}
+
+.textarea,
+.searchinput,
+.button,
+.gobutton{
+	background: #FFF;
+	border: 1px solid #4C77B6;
+	color: #000;
+	font-family: Verdana, Helvetica, Sans-Serif;
+	font-size: 11px;
+	padding: 2px;
+	vertical-align: middle;
+}
+	
+.button{
+	background: #F7F7F7;
+}
+
+.gobutton{
+	background: transparent;
+	border: 0;
+	color: #b4b4b4;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.radiobutton,
+.checkbox,
+.helpbox { 
+	border: 0;
+	vertical-align: middle;
+	background: transparent;
+}
+
+/* 
+ * class.formtable 
+ *
+ * used for tabled forms 
+ * technically tables should not be used for form display 
+ * but, in the case of IPB a table is easier to work with
+ * for the average webmaster, who has little to no CSS knowledge.
+ *
+ */
+
+.formtable{
+	background: transparent;
+}
+
+.formtable td,
+.pformleft,
+.pformleftw,
+.pformright{
+	background:#F7F7F7;
+	border: 1px solid #DBDBDB;
+	border-bottom: 0;
+	border-left: 0;
+	font-weight: bold;
+	margin: 1px 0 0 0;
+	padding: 6px;
+	width: 25%;
+} 
+
+.formtable td.wider,
+.pformleftw,
+.pformright{
+	width: 40%;
+}
+
+.formtable td.formright,
+.pformright{
+	border-right: 0px;
+	font-weight: normal;
+	width: auto;
+} 
+
+.formtable td.formtitle,
+.formsubtitle{
+	background: #E7E6E6;
+	border: 1px solid #9FB9D4; 
+	border-bottom: 0;
+	border-left: 0;
+	border-right: 0;
+	font-weight: normal;
+}
+
+.formsubtitle{ 
+	border: 0;
+	color: #666666;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.formtable td.formstrip{
+	background: #DDE8F2;
+	border: 1px solid #9FB9D4;
+	border-left: 0;
+	border-right: 0;
+	font-weight: normal;
+}
+
+/* 
+ * ========================================
+ * new style quote and code wrappers MATT's DESIGN 
+ * ========================================
+ */
+
+.quotetop{
+	background: #F7F7F7 url(style_images/cudazone/css_img_quote.gif) no-repeat right;
+	border: 1px dotted #000;
+	border-bottom: 0;
+	border-left: 4px solid #aeaeae;
+	color: #000;
+	font-weight: bold;
+	font-size: 10px;
+	margin: 2px auto 0 auto;
+	padding: 3px;
+}
+
+.quotemain{
+	background: #FAFCFE;
+	border: 1px dotted #000;
+	border-left: 4px solid #aeaeae;
+	border-top: 0;
+	color: #465584;
+	padding: 4px;
+	margin: 0 auto 0 auto;
+}
+
+.codetop,
+.sqltop,
+.htmltop{
+	background: #FDDBCC url(style_images/cudazone/css_img_code.gif) no-repeat right;
+	color: #000;
+	font-weight: bold;
+	margin: 0 auto 0 auto;
+	padding: 3px;
+}
+
+.codemain,
+.sqlmain,
+.htmlmain{
+	background: #FAFCFE;
+	border: 1px dotted #000;
+	color: #465584;
+	font-family: Courier, Courier New, Verdana, Arial;
+	margin: 0 auto 0 auto;
+	padding: 2px;
+}
+
+/* 
+ * ========================================
+ * old school quote and code styles - backwards compatibility 
+ * ========================================
+ */
+
+#QUOTE,
+#CODE{  
+	background: #FAFCFE; 
+	border: 1px solid #000; 
+	color: #465584; 
+	font-family: Verdana, Arial; 
+	font-size: 11px; 
+	padding: 2px; 
+	white-space: normal;
+}
+
+#CODE{ 
+	font-family: Courier, Courier New, Verdana, Arial;
+}
+
+/* 
+ * ========================================
+ * All New Styles 
+ * ========================================
+ */
+.cleared{
+	clear: both;
+}
+
+.borderwrap,
+.borderwrapm{ /* this will affect the outlining border of all the tables and boxes through-out the skin. */
+	background: #FFF;
+	border: 1px solid #b4b4b4;
+	padding: 0px; 
+	margin: 0px; 
+}
+
+.borderwrapm{
+	margin: 5px;
+}
+
+.borderwrap h3,
+.maintitle,
+.maintitlecollapse{
+	background: url(style_images/cudazone/tile_cat.jpg);
+	border: 1px solid #FFF;
+	border-bottom: 1px solid #525252;
+	color: #FFF; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0px;
+	padding: 8px;
+}
+
+.maintitle td {
+	color: #FFF; 
+	font-size: 12px;
+	font-weight: bold;
+}
+
+
+.maintitlecollapse{
+	border: 1px solid #FFF;
+}
+
+.maintitle p,
+.maintitlecollapse p,
+.formsubtitle p{
+	background: transparent !important;
+	border: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.maintitle p.expand,
+.maintitle p.goto,
+.maintitlecollapse p.expand,
+.formsubtitle p.members{
+	float: right;
+	width: auto !important;
+}
+
+.maintitle a:link, 
+.maintitle a:visited,
+.maintitlecollapse a:link, 
+.maintitlecollapse a:visited{ 
+	background: transparent;
+	color: #FFF;
+	text-decoration: none; 
+}
+
+.maintitle a:hover, 
+.maintitle a:active,
+.maintitlecollapse a:hover, 
+.maintitlecollapse a:active{ 
+	background: transparent;
+	color: #F1F1F1;
+}
+
+table th,
+.borderwrap table th,
+.subtitle,
+.subtitlediv,
+.postlinksbar{ 
+	background: transparent url(style_images/cudazone/tile_sub.jpg);
+	border-bottom: 1px solid #525252;
+	color: #666666; 
+	font-size: 10px;
+	font-weight: bold; 
+	letter-spacing: 1px;
+	margin: 0; 
+	padding: 5px; 
+}
+
+.subtitlediv{
+	border: 1px solid #FFF;
+	border-bottom: 1px solid #525252;
+	text-align: right;
+}
+
+.borderwrap table th a:link,
+.subtitle a:link,
+.subtitlediv a:link,
+.borderwrap table th a:visited,
+.subtitle a:visited, 
+.subtitlediv a:visited, 
+.borderwrap table th a:active,
+.subtitle a:active,
+.subtitlediv a:active,
+.borderwrap table th a:hover,
+.subtitle a:hover,
+.subtitlediv a:hover{ 
+	background: transparent;
+	color: #666666;
+	text-decoration: none; 
+}
+
+.borderwrap h4{
+	background: #DDE6F2;
+	border: 1px solid #FFF;
+	border-bottom: 1px solid #525252;
+	border-top: 1px solid #525252;
+	color: #525252; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0;
+	padding: 5px;
+}
+
+.borderwrap p{
+	background: #F9F9F9;
+	border: 1px solid #CCC;
+	margin: 5px;
+	padding: 10px;
+	text-align: left;
+}
+
+
+td.formbuttonrow,
+.pformstrip,
+.borderwrap p.formbuttonrow,
+.borderwrap p.formbuttonrow1{
+	background: #E7E6E6 !important; 
+	border: 1px solid #FFF;
+	border-top: 1px solid #525252;
+	margin: 0px !important;
+	padding: 5px !important;
+	text-align: center;
+}
+
+td.formbuttonrow{
+	border-bottom: 0;
+	border-left: 0;
+	border-right: 0;
+}
+
+.borderwrap p.formbuttonrow1{
+	background: #F9F9F9 !important;
+	border: 0;
+	border-top: 1px solid #CCC;
+}
+
+.bar,
+.barb,
+.barc{
+	background: #F7F7F7;
+	border: 1px solid #FFF;
+}
+
+.barc{
+	border-bottom: 0;
+}
+
+.bar p,
+.barb p,
+.barc p{
+	background: transparent;
+	border: 0;
+	color: #222;
+	font-size: 11px;
+	margin: 0;
+	padding: 5px;
+	text-align: left;
+}
+
+.barb p{
+	text-align: right;
+}
+
+.bar p.over,
+.bar p.overs,
+.barc p.over,
+.barc p.overs{
+	float: right;
+}
+
+.barb p.over,
+.barb p.overs{
+	float: left;
+}
+
+.bar p.overs,
+.barb p.overs,
+.barc p.overs{
+	position: relative;
+	top: 5px;
+}
+
+.catend{
+	background: #aeaeae;
+	color: #000;
+	font-size: 1px;
+	height: 5px;
+}
+
+.newslink{
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	margin: 0;
+	width: 100%;
+}
+
+.newslink td{
+	color: #222;
+	font-size: 10px;
+	padding: 5px 5px 5px 10px;
+}
+
+.newslink span{
+	background: transparent;
+	color: #505050;
+	font-style: italic;
+	font-weight: normal;
+}
+
+.newslink input{
+	background: #FFF;
+	border: 1px solid #999;
+	color: #505050;
+	font-size: 10px;
+	padding: 3px;
+	vertical-align: middle;
+	width: auto;
+}
+
+.newslink input.button{
+	background: transparent;
+	border: 0;
+	color: #b4b4b4;
+	vertical-align: middle;
+}
+
+.fieldwrap{
+	background: #F9F9F9;
+	border: 1px solid #CCC;
+	border-top: 0;
+	margin: 5px;
+	padding: 0;
+	text-align: left;
+}
+
+.fieldwrap h4{
+	background: #EEE;
+	border: 1px solid #CCC;
+	border-left: 0;
+	border-right: 0;
+	color: #444; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0;
+	padding: 5px;
+}
+
+.errorwrap {
+	background: #F2DDDD;
+	border: 1px solid #992A2A;
+	border-top: 0;
+	margin: 5px;
+	padding: 0;
+}
+
+
+.errorwrap h4 {
+	background: #E3C0C0;
+	border: 1px solid #992A2A;
+	border-left: 0;
+	border-right: 0;
+	color: #992A2A; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0;
+	padding: 5px;
+}
+
+.errorwrap p {
+	background: transparent;
+	border: 0;
+	color: #992A2A;
+	margin: 0;
+	padding: 8px;
+}
+
+
+.ruleswrap{
+	background: #F2DDDD;
+	border: 1px solid #992A2A;
+	color: #992A2A; 
+	margin: 5px 0 5px 0;
+	padding: 5px;
+}
+
+#redirectwrap{
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	margin: 200px auto 0 auto;
+	text-align: left;
+	width: 500px;
+}
+
+#redirectwrap h4{
+	background: #d5d6d7;
+	border-bottom: 1px solid #DBDBDB;
+	color: #666666;
+	font-size: 14px;
+	margin: 0;
+	padding: 5px;
+}
+
+#redirectwrap p{
+	margin: 0;
+	padding: 5px;
+}
+
+#redirectwrap p.redirectfoot{
+	background: #d7d9da;
+	border-top: 1px solid #DBDBDB;
+	text-align: center;
+}
+
+
+#gfooter{
+	background: #a5a5a5;
+	margin: 5px 0 5px 0;
+	padding: 0;
+	width: 100%;
+}
+
+#gfooter td{
+	color: #FFF;
+	font-size: 10px;
+	padding: 4px;
+}
+
+#gfooter a:link,
+#gfooter a:visited{
+	color: #FFF;
+}
+
+#logostrip{ 
+	background: #F2F2F2 url(style_images/cudazone/tile_back.jpg);
+	border: 1px solid #FFF;
+	height: 100px;
+	margin: 0;
+	padding: 0;
+}
+
+#logographic{
+	background: transparent url(style_images/cudazone/logo4.jpg) no-repeat left;
+	height: 100px;
+	margin: 0;
+	padding: 0;
+}
+
+#submenu{ 
+	background: transparent url(style_images/cudazone/top_tile_sub.gif);
+	border: 1px solid #FFF;
+	border-top: 0;
+	color: #666666; 
+	margin: 0;
+	height: 29px;
+	text-align: right;
+}
+
+.ipb-top-left-link,
+.ipb-top-right-link
+{
+	background: transparent url(style_images/cudazone/tile_sub-lite.gif);
+	float: right;
+	font-size: 10px;
+	font-weight: bold; 
+	letter-spacing: 0.5px;
+	margin: 0px;
+	padding: 7px 0 7px 0;
+	width: auto;
+	border-left:  1px solid #EFEFEF;
+}
+
+.ipb-top-left-link
+{
+	float: left;
+	border-left: 0px;
+	border-right: 1px solid #EFEFEF;
+}
+
+.ipb-top-left-link a:link, 
+.ipb-top-left-link a:visited,
+.ipb-top-right-link a:link, 
+.ipb-top-right-link a:visited
+{ 
+	background: transparent; 
+	color: #353535;
+	padding: 0 6px 0 6px;
+	text-decoration: none;
+}
+
+.ipb-top-left-link a:hover, 
+.ipb-top-left-link a:active,
+.ipb-top-right-link a:hover, 
+.ipb-top-right-link a:active
+{
+	background: transparent; 
+	color: #525252; 
+}
+
+#userlinks,
+#userlinksguest{ 
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	margin: 5px 0 5px 0;
+	padding: 0 5px 0 5px;
+}
+
+#userlinksguest{ 
+	background: #F4E7EA;
+	border: 1px solid #986265;
+}
+
+#userlinks p,
+#userlinksguest p{
+	background: transparent !important;
+	border: 0 !important;
+	font-size: 10px;
+	font-weight: bold; 
+	letter-spacing: 1px;
+	margin: 0 !important;
+	padding: 7px 0 7px 0; 
+	text-align: right;
+}
+
+#userlinks p,
+#userlinksguest p{
+	font-weight: normal;
+	letter-spacing: 0;
+}
+
+#userlinksguest p.pcen{
+	text-align: center;
+}
+
+#userlinks p.home,
+#userlinksguest p.home{
+	float: left;
+}
+
+#navstrip{ 
+	background: transparent;
+	color: #999;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 0 5px 0;
+	padding: 14px 0px 8px 0px; 
+}
+
+#navstrip a:link, 
+#navstrip  a:visited{ 
+	background: transparent; 
+	color: #222; 
+	text-decoration: none;
+}
+
+#navstrip a:hover, 
+#navstrip a:active{
+	background: transparent; 
+	color: #666666; 
+}
+
+.toplinks{
+	background: transparent;
+	color: #000;
+	margin: 0;
+	padding: 0 0 5px 0;
+	text-align: right;
+}
+
+.toplinks span{
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	border-bottom: 0;
+	color: #000;
+	font-size: 10px;
+	font-weight: bold;
+	margin: 0 10px 0 0;
+	padding: 5px;
+}
+
+.copyright{ 
+	background: #EEE;
+	font-size: 11px; 
+	margin: 0 0 5px 0;
+	padding: 8px;
+}
+
+/* 
+ * ========================================
+ * print page styles 
+ * ========================================
+ */
+
+#print{
+	margin: 20px auto 20px auto;
+	padding: 0;
+	text-align: left;
+	width: 85%;
+}
+
+#print h1,
+#print h2,
+#print h3,
+#print h4,
+#print p{
+	color: #036;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0;
+	padding: 8px;
+}
+
+#print h2,
+#print h3,
+#print p{
+	border-bottom: 1px solid #999;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+#print h3{
+	background: #F5F5F5;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+
+#print h4{
+	background: #F9F9F9;
+	font-size: 11px;
+}
+
+#print p{
+	margin: 0 0 5px 0;
+	padding: 10px;
+}
+
+#print p.printcopy{
+	border: 0;
+	color: #000;
+	text-align: center;
+}
+
+.dny-edit-title
+{
+	border:0px;
+	padding:3px;
+	margin:0px;
+	background: #E7E6E6; 
+	color: #666666; 
+}
+
+
+/* ======================================== */
+/* TABS
+/* ======================================== */
+
+.tabon
+{
+	border-top:1px solid #999;
+	border-left:1px solid #999;
+	border-right:1px solid #999;
+	background-color:#FFF;
+	padding:8px;
+	padding-bottom:9px;
+	font-size:10px;
+	float:left;
+	width:auto;
+	margin-top:3px;
+}
+
+.taboff
+{
+	border-top: 1px solid #777;
+	border-left: 1px solid #777;
+	border-right: 1px solid #777;
+	background-color: #B5C3D9;
+	color: #333;
+	padding: 8px;
+	font-size:10px;
+	float: left;
+	width: auto;
+	margin-top:3px;
+}
+
+.tabon a:link, 
+.tabon a:visited, 
+.tabon a:active
+{
+	text-decoration:none;
+	color: #000;
+}
+
+.taboff a:link, 
+.taboff a:visited, 
+.taboff a:active
+{
+	text-decoration:none;
+	color: #333;
+}
+
+.mya-back
+{
+	background: #b4b4b4;
+	margin:1px;
+	padding: 1px;
+}
+
+.mya-content
+{
+	background: #FFF;
+	padding:8px;
+	margin: 1px;
+	border: 1px solid #777;
+}
+
+.mya-content-tbl
+{
+   background: #FBFBFB;
+   border: 1px solid #777;
+   text-align:left;
+   font-size:10px;
+   white-space:nowrap;
+   margin:1px;
+}
+
+.mya-fieldwrap
+{
+	background: transparent;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	padding: 4px;
+	border: 1px solid #C5C7CD;
+	-moz-border-radius: 5px;
+	width: auto;
+	display: block;
+}
+
+/* -------------------------------- */
+/* Create PM box defaults           */
+/* -------------------------------- */
+
+.iframeshim
+{
+	position:absolute;
+	display:none;
+	background: #FFF;
+	filter:alpha(opacity=0);
+	border:0px;
+	width:auto;
+	height:auto;
+}
+
+
+
+/* -------------------------------- */
+/* Experimental                     */
+/* -------------------------------- */
+
+.popupmenu,
+.popupmenu-new
+{
+   background: #FBFBFB;
+   border: 1px solid #666666;
+   text-align:left;
+   font-size:10px;
+   white-space:nowrap;
+   /*padding:3px 5px 3px 3px;*/
+   /*width:300px;*/
+}
+
+.popupmenu-item
+{
+	padding: 5px;
+	/*margin-top:4px;*/
+	white-space: nowrap;
+	border-bottom: 1px solid #DBDBDB;
+	color:  #000000;
+	font-weight: normal;
+}
+
+.popupmenu-item-last
+{
+	padding: 5px;
+	/*margin-top:4px;*/
+	white-space: nowrap;
+	color:  #000000;
+	font-weight: normal;
+}
+
+.popmenubutton-new,
+.popmenubutton
+{
+	width:120px;
+	white-space:nowrap;
+	background-color: #DBDBDB;
+	border:1px solid #666666;
+	color: #666666;
+	font-weight:bold;
+	float:right;
+	height:18px;
+	text-align:center;
+	margin:0px;
+	font-size:11px;
+	padding:3px;
+}
+
+.popmenubutton-new
+{
+	float:none;
+	width:auto;
+	text-align:left;
+	height:auto;
+	padding:3px;
+	font-weight:normal;
+	background-color:#F6F8F6;
+	background-image: url(style_images/cudazone/menu_action_down-padded.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+.popmenubutton-new-out
+{
+	padding:4px;
+}
+
+.popupmenu-new
+{
+	background-color: #F7F7F7;
+}
+
+
+.popmenubutton a:link, 
+.popmenubutton a:visited,
+.popmenubutton-new a:link, 
+.popmenubutton-new a:visited,
+.popupmenu-item a:link, 
+.popupmenu-item a:visited,
+.popupmenu-item-last a:link, 
+.popupmenu-item-last a:visited
+{ 
+	color: #666666; 
+	text-decoration: none;
+}
+
+.popmenubutton a:hover,
+.popmenubutton-new a:hover,
+.popupmenu-item a:hover, 
+.popupmenu-item-last a:hover
+{ 
+	color: #525252; 
+	text-decoration: none;
+}
+
+.popupmenu-category
+{ 
+	background: transparent url(style_images/cudazone/tile_sub.jpg);
+	border-top: 1px solid #525252;
+	border-bottom: 1px solid #525252;
+	color: #666666; 
+	font-size: 10px;
+	font-weight: bold; 
+	letter-spacing: 1px;
+	margin: 0; 
+	padding: 5px; 
+}
+
+/* -------------------------------- */
+/* Loading box
+/* -------------------------------- */
+
+#loading-layer-inner
+{
+	width:220px;
+	height:28px;
+	padding:18px 10px 10px 10px;
+	text-align:center;
+	color: #000;
+	border: 1px solid;
+	border-color:#CCC #666 #666 #CCC;
+	background-color: #FCF8C7;
+}
+
+/* -------------------------------- */
+/* Message in a bo(x|ttle)
+/* -------------------------------- */
+
+#ipd-msg-wrapper
+{
+	display: none;
+	width: 220px;
+}
+
+#ipd-msg-inner
+{
+	width:100%;
+	height:45px;
+	padding: 6px 4px 4px 4px;
+	margin: 0px;
+	text-align:center;
+	color: #000;
+	border: 1px solid;
+	border-color:#ccc #666 #666 #ccc;
+	background-color: #FCF8C7;
+	filter:alpha(opacity=75);
+	opacity:.75
+}
+
+#ipd-msg-title
+{
+	width: 100%;
+	height:20px;
+	margin: 0px;
+	padding: 6px 4px 4px 4px;
+	background: transparent url(style_images/cudazone/css_pp_header.gif);
+	border: 1px solid #666666;
+	border-bottom: 0px;
+	color: #FFF;
+}
+
+.linked-image
+{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+.resized-linked-image
+{
+	margin: 1px 0px 0px 0px;
+	padding: 0px;
+	background-color: #000;
+	border: 0px;
+	color: #FFF;
+	font-size: 10px;
+	width: auto;
+	-moz-border-radius-topleft: 7px;
+	-moz-border-radius-topright: 7px;
+}
+
+.resized-linked-image-zoom
+{
+	width: 200px;
+	height: 30px;
+	filter:alpha(opacity=85);
+	opacity:.85;
+	background-color: #FFF;
+	padding-top: 6px;
+	padding-left: 5px;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	display: none;
+}
+
+/* -------------------------------- */
+/* Edit post reason
+/* -------------------------------- */
+
+.post-edit-reason
+{
+	background: #EFEFEF;
+	margin-top: 9px;
+	margin-bottom: 0px;
+	padding: 4px;
+	color: #333;
+	font-size: 10px;
+	border: 1px solid #C5C7CD;
+	-moz-border-radius: 5px;
+	width: auto;
+	display: block;
+}
+
+/* -------------------------------- */
+/* Personal Profile
+/* -------------------------------- */
+
+.pp-name
+{ 
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	margin: 0px;
+	padding: 10px;
+}
+
+.pp-name h3
+{
+	margin:0px;
+	padding:0px 0px 5px 0px;
+	font-size:24px;
+}
+
+.pp-header
+{ 
+	background: transparent url(style_images/cudazone/tile_sub.jpg);
+	color: #666666; 
+	font-size: 10px;
+	font-weight: bold; 
+	margin: 0px 0px 1px 0px; 
+	padding: 5px; 
+}
+
+.pp-title
+{
+	background: url(style_images/cudazone/css_pp_header.gif);
+	border-bottom: 1px solid #525252;
+	color: #FFF; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0px;
+	padding: 8px;
+}
+
+.pp-datebox
+{
+	text-align: center;
+	background: #FFFFFF;
+	border: 1px solid #555555;
+	padding: 4px;
+	margin: 0px;
+	font-size:18px;
+	font-weight:bold;
+	line-height: 100%;
+	letter-spacing: -1px;
+	float:right;
+	width: auto;
+}
+
+.pp-datebox em
+{
+	color: #AAA;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.pp-contentbox-back
+{
+	background-image: url(style_images/cudazone/folder_profile_portal/pp-css-contentblock.gif);
+	background-repeat: repeat-x;
+	background-color: #C2C2C2;
+	padding: 6px;
+}
+
+.pp-contentbox-entry,
+.pp-contentbox-entry-noheight,
+.pp-contentbox-entry-noheight-mod,
+.pp-contentbox-entry-noheight-sel
+{
+	background-color: #F6F8F6;
+	border: 1px solid #888888;
+	line-height: 140%;
+	padding: 8px;
+	margin-bottom: 6px;
+	height: 200px;
+	overflow: auto;
+	overflow-x: auto;
+}
+
+.pp-contentbox-entry-noheight-sel
+{
+	background-color:#FCECCD;
+}
+
+.pp-contentbox-entry-noheight-mod
+{
+	background-color:#FDF1DA;
+}
+
+.pp-contentbox-entry-noheight,
+.pp-contentbox-entry-noheight-mod,
+.pp-contentbox-entry-noheight-sel
+{
+	height: auto;
+	margin-bottom: 1px;
+}
+
+.pp-image-thumb-wrap,
+.pp-image-thumb-wrap-floatright,
+.pp-image-mini-wrap,
+.pp-image-mini-wrap-floatright
+{
+	width: 52px;
+	height: 52px;
+	text-align: center;
+	background: #FFFFFF;
+	border: 1px solid #555555;
+	padding: 4px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.pp-image-mini-wrap,
+.pp-image-mini-wrap-floatright
+{
+	width: 27px;
+	height: 27px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.pp-image-thumb-wrap-floatright,
+.pp-image-mini-wrap-floatright
+{
+	float:right;
+}
+
+.pp-tiny-text
+{
+	color: gray;
+	font-size: 10px;
+}
+
+.pp-mini-content-entry,
+.pp-mini-content-entry-noheight,
+.pp-mini-entry-noheight-shaded
+{
+	background-color: #F7F7F7;
+	padding: 6px;
+	border-bottom: 1px dotted #555555;
+	clear:both;
+	width: auto;
+	height: 60px;
+}
+
+.pp-mini-entry-noheight-shaded
+{
+	background-color: #F2F1F3;
+}
+
+.pp-mini-content-entry-noheight,
+.pp-mini-entry-noheight-shaded
+{
+	height: auto;
+}
+
+.pp-tabclear,
+.pp-maintitle
+{
+	background: url(style_images/cudazone/css_pp_header.gif);
+	border: 1px solid #FFF;
+	border-bottom: 1px solid #525252;
+	color: #FFF; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0px;
+	padding: 8px;
+}
+
+.pp-tabclear
+{
+	border:0px;
+	border-right: 1px solid #a2a2a2;
+	border-left: 1px solid #a2a2a2;
+}
+
+.pp-tabon
+{
+	border-top:1px solid #6A6A6A;
+	border-left:1px solid #a2a2a2;
+	border-right:1px solid #a2a2a2;
+	background-color:#9E9E9E;
+	color:#FFFFFF;
+	padding:8px;
+	float:left;
+	width:auto;
+	background-image: url(style_images/cudazone/css_pp_tab_on.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	margin-top:3px;
+	font-size:10px;
+}
+
+.pp-taboff,
+.pp-tabshaded
+{
+	border-top: 1px solid #9E9E9E;
+	border-left: 1px solid #9E9E9E;
+	border-right: 1px solid #9E9E9E;
+	background-color: #6A6A6A;
+	color: #6A6A6A;
+	padding:8px;
+	float: left;
+	width: auto;
+	background-image: url(style_images/cudazone/css_pp_tab_off.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	margin-top:3px;
+	font-size:10px;
+}
+
+.pp-tabshaded
+{
+	background-image: url(style_images/cudazone/css_pp_tab_shaded.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	color: #516795;
+	border-top: 1px solid #AAAAAA;
+	border-left: 1px solid #AAAAAA;
+	border-right: 1px solid #AAAAAA;
+}
+
+.pp-tabon a:link, 
+.pp-tabon a:visited, 
+.pp-tabon a:active
+{
+	text-decoration:none;
+	color: #FFFFFF;
+}
+
+.pp-taboff a:link, 
+.pp-taboff a:visited, 
+.pp-taboff a:active,
+.pp-tabshaded a:link, 
+.pp-tabshaded a:visited, 
+.pp-tabshaded a:active
+{
+	text-decoration:none;
+	color: #6A6A6A;
+}
+
+.pp-tabwrap
+{
+	height: 34px;
+	margin:0px;
+	padding:0px;
+}
+</style>
+		<script type="text/javascript">
+		function fix_linked_image_sizes_attach_thumb( attach_id, width, height, file_size )
+		{
+			return true;
+		}
+		</script>
+	</head><body>
+	<div id="print">
+		<h1>Printable Version of Topic</h1>
+		<h2><a href="http://forums.nvidia.com/index.php?showtopic=29482" title="Click to view Topic">Click here to view this topic in its original format</a></h2>
+		<h3>NVIDIA Forums _ CUDA Programming and Development _ CMake build script for Cuda.</h3><div class="printpost">
+			<h4>Posted by: <b>abestephens</b>  Mar 1 2007, 08:51 PM</h4>
+			<p>Hi everyone,<br><br>I've
+been using CMake (Kitware's cross platform build system) with Cuda for
+quite some time now. CMake eliminates the need to modify visual studio
+build configuration manually to invoke nvcc. <br><br>I've finally
+posted a build script called FindCuda.cmake. This script locates
+Cuda/Cut and defines several macros for adding cuda executables or
+libraries. This version performs fully dependency checking by parsing
+the output of "nvcc -M" in a separate cmake script. I use WinXP with
+the script but it should work in linux too.<br><br>More information is available at: http://www.sci.utah.edu/~abe/FindCuda.html<br><br>Abe<br><br>
+			<br>
+			<!-- -->
+			</p>
+		</div><div class="printpost">
+			<h4>Posted by: <b>Mark Harris</b>  Mar 2 2007, 11:30 AM</h4>
+			<p>Abe, thanks for your helpful contribution to the CUDA developer community.<br><br>Mark
+			<br>
+			<!-- -->
+			</p>
+		</div><div class="printpost">
+			<h4>Posted by: <b>hufo</b>  Mar 2 2007, 01:03 PM</h4>
+			<p>Thanks for your code, it might come in handy.<br>I
+just posted a script for QMake
+http://forums.nvidia.com/index.php?showtopic=29539. However it is much
+less advanced than yours...<br>
+			<br>
+			<!-- -->
+			</p>
+		</div><div class="printpost">
+			<h4>Posted by: <b>dahu</b>  May 7 2007, 12:19 PM</h4>
+			<p>Abe, thanks for your scipt.<br><br>A small fix under linux / cmake 2.4.3 : replace <br><br>IF (NOT depend_text EQUAL "") <br>by<br>IF (NOT depend_text STREQUAL "")  <br>and idem in the corresponding ENDIF<br>in the make2cmake.cmake file.<br><br>It fixes a bug in the depfile not being well generated<br><br>Stephane<br>
+			<br>
+			<!-- -->
+			</p>
+		</div><div class="printpost">
+			<h4>Posted by: <b>abestephens</b>  May 26 2007, 11:07 PM</h4>
+			<p>Thanks for the note. This problem was fixed in r187 using a regex. <br><br>Since
+the original posting the script has been updated. I've added the
+ability to automatically parse -cubin generated files and output stats
+each kernel. This prints out the number of registers etc. on the build
+console. Details and changelog are on the web page above.<br><br>Abe
+			<br>
+			<!-- -->
+			</p>
+		</div><div class="printpost">
+			<h4>Posted by: <b>abestephens</b>  Mar 4 2008, 04:15 AM</h4>
+			<p>Hi,
+I've updated (to r537) the FindCuda.cmake script and tested it with the
+current version on WinXP, Linux and Mac OSX. Thanks to everyone who has
+provided feedback; I think the update should address most issues. See
+the notes in the script for usage.<br><br>Abe<br>
+			<br>
+			<!-- -->
+			</p>
+		</div><div class="printpost">
+			<h4>Posted by: <b>santner</b>  Apr 2 2008, 11:28 AM</h4>
+			<p>see below
+			<br>
+			<!-- -->
+			</p>
+		</div><div class="printpost">
+			<h4>Posted by: <b>santner</b>  Apr 2 2008, 11:32 AM</h4>
+			<p>Hi,<br><br>I use your package successfully, thanks for your effort.<br><br>What I am trying now, is to compile *.cu files in my project, which are not located under <i>${CMAKE_CURRENT_SOURCE_DIR}</i>. <br><br>The macro <br><br>   <i>MACRO(CUDA_add_custom_commands cuda_target)</i>     // Line 277<br><br>in FindCuda.cmake adds the base directory to every passed file path <br><br>   <i>SET(source_file ${CMAKE_CURRENT_SOURCE_DIR}/${file})</i>    // Line 293<br><br>which makes it impossible to access any file outside of <i>${CMAKE_CURRENT_SOURCE_DIR}</i>. Has anyone an idea / workaround to this issue?<br><br>Thanks in advance.<br>
+			<br>
+			<!-- -->
+			</p>
+		</div><div class="printpost">
+			<h4>Posted by: <b>MisterAnderson42</b>  Apr 2 2008, 03:54 PM</h4>
+			<p>I have made the needed modifications, but it was so long ago I don't remember what I did <!-- --><img src="CMake%20build%20script%20for%20Cuda%20-%20NVIDIA%20Forums_files/sad.gif" style="vertical-align: middle;" alt="sad.gif" border="0"><!-- --> What I have now works in linux and windows, but I remember it being tricky to get it working in both simultaneously.<br><br>I've
+attached the FindCUDA.cmake that I've been using. Bu it is based on an
+older version of the file so it doesn't have some of the features of
+the latest one (like Mac support). Maybe you can merge my changes into
+the new version. Otherwise, I will get around to making the merge
+myself in a few days: I'm looking forward to adding Mac support to my
+application. <br>
+			<br>
+</p><div>
+	<strong><span class="edit"></span></strong>
+	<div>
+		<a href="http://forums.nvidia.com/index.php?act=attach&amp;type=post&amp;id=7881" title="" target="_blank"><img src="CMake%20build%20script%20for%20Cuda%20-%20NVIDIA%20Forums_files/zip.gif" alt=""></a>
+&nbsp;<a href="http://forums.nvidia.com/index.php?act=attach&amp;type=post&amp;id=7881" title="" target="_blank">FindCuda_oldver.cmake.gz</a> ( 3.62K )
+<span class="desc">: 93</span><br> 
+	</div>
+</div>
+<div>&nbsp;</div>
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>santner</b>  Apr 3 2008, 10:59 AM</h4>
+			<p>neo,<br><br>your
+file did solve the inital problem but threw up several other issues on
+my system. So I just took the actual version of FindCUDA.cmake and
+removed additional prefixes from the filenames (see attached file).<br><br>Now
+every *.cu file has to be passed with its absolute path in
+CmakeLists.txt, which seems to be a sufficient workaround for my
+problem.<br><br>br
+			<br>
+			<br>
+</p><div>
+	<strong><span class="edit"></span></strong>
+	<div>
+		<a href="http://forums.nvidia.com/index.php?act=attach&amp;type=post&amp;id=7888" title="" target="_blank"><img src="CMake%20build%20script%20for%20Cuda%20-%20NVIDIA%20Forums_files/zip.gif" alt=""></a>
+&nbsp;<a href="http://forums.nvidia.com/index.php?act=attach&amp;type=post&amp;id=7888" title="" target="_blank">FindCuda.rar</a> ( 4.21K )
+<span class="desc">: 68</span><br> 
+	</div>
+</div>
+<div>&nbsp;</div>
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>MisterAnderson42</b>  Apr 3 2008, 02:57 PM</h4>
+			<p>As
+I said, my version was based on a very old version of FindCUDA.cmake
+which is probably why you had trouble getting it to work on your system.<br><br>What I don't like about the quick and dirty method you did is that you have<br>SET(generated_target "${file}_target")<br>which populates the source directory with generated files: a no-no in CMake out-of-source builds because it makes a mess.<br><br>I've
+merged my changes into the latest r537 FindCUDA.cmake from Abe's
+repository. The file is attached here. I've tested it and it works in
+linux. I assume it will work in Windows still, since it is the same
+modification I made before.<br><br>Note: I also had to change the
+generated file from ${stripped_file}_${cuda_target}_generated.cc to
+${stripped_file}_${cuda_target}_generated.c (note the extension
+change). With the generated file as .cc I got lots of undefined
+references for all of my functions in .cu files. I noticed the old
+version of FindCUDA.cmake I used generated a .c file so I made the
+change to the new one to get it to work.<br><br>By the way, I forgot to
+add: Thank you very much Abe, for providing FindCUDA.cmake. I've been
+using it for a year now in a very large project and it has never let me
+down (except for this minor little file path issue, I guess). <br>
+			<br>
+</p><div>
+	<strong><span class="edit"></span></strong>
+	<div>
+		<a href="http://forums.nvidia.com/index.php?act=attach&amp;type=post&amp;id=7890" title="" target="_blank"><img src="CMake%20build%20script%20for%20Cuda%20-%20NVIDIA%20Forums_files/zip.gif" alt=""></a>
+&nbsp;<a href="http://forums.nvidia.com/index.php?act=attach&amp;type=post&amp;id=7890" title="" target="_blank">FindCuda.cmake.gz</a> ( 4.42K )
+<span class="desc">: 113</span><br> 
+	</div>
+</div>
+<div>&nbsp;</div>
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>pedroteixeira</b>  Apr 14 2008, 01:43 AM</h4>
+			<p><br>Thanks
+for sharing the cmake script! I just checked from the trunk, but
+currently I'm unable to compile the sample project. I would welcome any
+hints from anyone..<br><br>I am currently running on ubuntu 7.10 and the generate file that gives the linking error is:<br>/usr/bin/c++
+-O3 -DNDEBUG -fPIC $(test_OBJECTS) $(test_EXTERNAL_OBJECTS) -o test
+-rdynamic -L/usr/local/cuda/lib -lcuda -lcudart
+-Wl,-rpath,/usr/local/cuda/lib <br><br><br>thanks,<br>Pedro<br><br><br><!-- --></p><div class="codetop">CODE</div><div class="codemain"><!-- --><br>-- Configuring done<br>-- Generating done<br>-- Build files have been written to: /home/pedro/Projects/CMake-cuda/build<br>[
+&nbsp;8%] Building NVCC Dependency File:
+/home/pedro/Projects/CMake-cuda/build/src/cuda/test_lib.cu_test_lib_generated.cc.NVCC-depend<br>[
+16%] Building NVCC -cubin File:
+/home/pedro/Projects/CMake-cuda/build/src/cuda/test_lib.cu_test_lib_generated.cc.NVCC-cubin.txt<br>Kernel: &nbsp; &nbsp;_Z6kernelPjS_<br>Local: &nbsp; &nbsp; 0<br>Shared: &nbsp; &nbsp;24<br>Registers: 6<br><br>[
+25%] Building NVCC /home/pedro/Projects/CMake-cuda/src/test_lib.cu:
+/home/pedro/Projects/CMake-cuda/build/src/cuda/test_lib.cu_test_lib_generated.cc<br>Scanning dependencies of target test_lib<br>[ 33%] Building CXX object src/CMakeFiles/test_lib.dir/cuda/test_lib.cu_test_lib_generated.o<br>Linking CXX static library libtest_lib.a<br>[ 41%] Built target test_lib<br>[ 50%] Building CXX object src/CMakeFiles/lib_example.dir/main.o<br>/home/pedro/Projects/CMake-cuda/src/main.cc:9:3: warning: no newline at end of file<br>Linking CXX executable lib_example<br>[ 50%] Built target lib_example<br>[ 58%] Building NVCC Dependency File: /home/pedro/Projects/CMake-cuda/build/src/cuda/test_bin.cu_test_generated.cc.NVCC-depend<br>[ 66%] Converting NVCC dependency to CMake (/home/pedro/Projects/CMake-cuda/build/src/cuda/test_bin.cu_test_generated.cc.depend)<br>[ 75%] Building NVCC -cubin File: /home/pedro/Projects/CMake-cuda/build/src/cuda/test_bin.cu_test_generated.cc.NVCC-cubin.txt<br>Kernel: &nbsp; &nbsp;_Z6kernelPjS_<br>Local: &nbsp; &nbsp; 0<br>Shared: &nbsp; &nbsp;24<br>Registers: 6<br><br>[
+83%] Building NVCC /home/pedro/Projects/CMake-cuda/src/test_bin.cu:
+/home/pedro/Projects/CMake-cuda/build/src/cuda/test_bin.cu_test_generated.cc<br>Scanning dependencies of target test<br>[ 91%] Building CXX object src/CMakeFiles/test.dir/cuda/test_bin.cu_test_generated.o<br>[100%] Building CXX object src/CMakeFiles/test.dir/main.o<br>/home/pedro/Projects/CMake-cuda/src/main.cc:9:3: warning: no newline at end of file<br>Linking CXX executable test<br>CMakeFiles/test.dir/cuda/test_bin.cu_test_generated.o: In function `__sti____cudaRegisterAll_16_test_bin_cpp1_ii_dde60ace()':<br>test_bin.cu_test_generated.cc:(.text+0x5ee): undefined reference to `__cudaRegisterFatBinary(void*)'<br>test_bin.cu_test_generated.cc:(.text+0x63b):
+undefined reference to `__cudaRegisterFunction(void**, char const*,
+char*, char const*, int, uint3*, uint3*, dim3*, dim3*)'<br>CMakeFiles/test.dir/cuda/test_bin.cu_test_generated.o: In function `__device_stub__Z6kernelPjS_(unsigned int*, unsigned int*)':<br>test_bin.cu_test_generated.cc:(.text+0x66d): undefined reference to `cudaSetupArgument(void const*, unsigned int, unsigned int)'<br>test_bin.cu_test_generated.cc:(.text+0x68e): undefined reference to `cudaSetupArgument(void const*, unsigned int, unsigned int)'<br>test_bin.cu_test_generated.cc:(.text+0x69f): undefined reference to `cudaLaunch(char const*)'<br>CMakeFiles/test.dir/cuda/test_bin.cu_test_generated.o: In function `__cudaUnregisterBinary()':<br>test_bin.cu_test_generated.cc:(.text+0x9bf): undefined reference to `__cudaUnregisterFatBinary(void**)'<br>CMakeFiles/test.dir/cuda/test_bin.cu_test_generated.o:
+In function `global destructors keyed to
+_Z36__sti___16_test_bin_cpp1_ii_dde60acev':<br>test_bin.cu_test_generated.cc:(.text+0x432f): undefined reference to `__cudaUnregisterFatBinary(void**)'<br>CMakeFiles/test.dir/cuda/test_bin.cu_test_generated.o:
+In function `global constructors keyed to
+_Z36__sti___16_test_bin_cpp1_ii_dde60acev':<br>test_bin.cu_test_generated.cc:(.text+0x45fe): undefined reference to `__cudaRegisterFatBinary(void*)'<br>test_bin.cu_test_generated.cc:(.text+0x464b):
+undefined reference to `__cudaRegisterFunction(void**, char const*,
+char*, char const*, int, uint3*, uint3*, dim3*, dim3*)'<br>collect2: ld returned 1 exit status<br>make[2]: *** [src/test] Error 1<br>make[1]: *** [src/CMakeFiles/test.dir/all] Error 2<br>make: *** [all] Error 2<br><br><!-- --></div><!-- --><br><br><br><!-- --><div class="quotetop">QUOTE(abestephens @ Mar 1 2007, 05:51 PM)</div><div class="quotemain"><!-- -->Hi everyone,<br><br>I've
+been using CMake (Kitware's cross platform build system) with Cuda for
+quite some time now. CMake eliminates the need to modify visual studio
+build configuration manually to invoke nvcc. <br><br>I've finally
+posted a build script called FindCuda.cmake.&nbsp; This script locates
+Cuda/Cut and defines several macros for adding cuda executables or
+libraries. This version performs fully dependency checking by parsing
+the output of "nvcc -M" in a separate cmake script. I use WinXP with
+the script but it should work in linux too.<br><br>More information is available at: http://www.sci.utah.edu/~abe/FindCuda.html<br><br>Abe<br>[right][snapback]165702[/snapback][/right]<br><!-- --></div><!-- --><br>
+			<br>
+			<!-- -->
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>amael</b>  Apr 15 2008, 02:34 PM</h4>
+			<p><!-- --></p><div class="quotetop">QUOTE(pedroteixeira @ Apr 13 2008, 05:43 PM)</div><div class="quotemain"><!-- -->Thanks
+for sharing the cmake script! I just checked from the trunk, but
+currently I'm unable to compile the sample project.&nbsp; I would
+welcome any hints from anyone..<br><br>I am currently running on ubuntu 7.10 and the generate file that gives the linking error is:<br>/usr/bin/c++&nbsp;
+&nbsp; -O3 -DNDEBUG&nbsp; -fPIC $(test_OBJECTS)
+$(test_EXTERNAL_OBJECTS)&nbsp; -o test -rdynamic -L/usr/local/cuda/lib
+-lcuda -lcudart -Wl,-rpath,/usr/local/cuda/lib <br>thanks,<br>Pedro<br><!-- --><div class="codetop">CODE</div><div class="codemain"><!-- --><br>...<br><!-- --></div><!-- --><br><!-- --></div><!-- --><br><br>I am having the exact same problem as you Pedro (on Fedora Core 6), did you manage to solve it ?<br>thanks,<br><br>Amael
+			<br>
+			<!-- -->
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>mmehrwald</b>  Apr 18 2008, 12:05 PM</h4>
+			<p>I try since yesterday to fix the same problem but until now without being successful.
+			<br>
+			<!-- -->
+			</p>
+		</div><div class="printpost">
+			<h4>Posted by: <b>mmehrwald</b>  Apr 21 2008, 02:02 PM</h4>
+			<p>For
+me it seems that something goes wrong with libcudart.so. This lib
+should contain the functions which are not found by the linker but I do
+not know why.<br>Even if link by myself it does not work. Could that be an issue on x86 system which mine is?<br><br>Markus<br>
+			<br>
+			<!-- -->
+			</p>
+		</div><div class="printpost">
+			<h4>Posted by: <b>stelleg151</b>  Apr 30 2008, 04:39 AM</h4>
+			<p><!-- --></p><div class="quotetop">QUOTE(mmehrwald @ Apr 21 2008, 07:02 AM)</div><div class="quotemain"><!-- -->For
+me it seems that something goes wrong with libcudart.so. This lib
+should contain the functions which are not found by the linker but I do
+not know why.<br>Even if link by myself it does not work. Could that be an issue on x86 system which mine is?<br><br>Markus<br>[right][snapback]366087[/snapback][/right]<br><!-- --></div><!-- --><br><br>I'm also having this problem, I'll post an update if I get it figured out.
+			<br>
+			<!-- -->
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>Diego Mazala</b>  May 2 2008, 07:55 PM</h4>
+			<p>I am having problems to compile the example project from FindCuda.cmake.<br><br>I am using VS2005 on XP64. Can anybody help me?<br><br>The error:<br><i><br>1&gt;C:\CUDA\bin/../include\crt/host_runtime.h(57) : error C2632: 'char' followed by 'bool' is illegal<br>1&gt;C:\CUDA\bin/../include\crt/host_runtime.h(57)
+: warning C4091: 'typedef ' : ignored on left of 'char' when no
+variable is declared<br></i><br><br>Any help?<br>Thanks a lot
+			<br>
+			<!-- -->
+			</p>
+		</div><div class="printpost">
+			<h4>Posted by: <b>Benjii</b>  May 13 2008, 05:01 PM</h4>
+			<p>I'm seeing the same problem (also using VS2005, XP64, compiling as 32bit)<br><br>Looking
+at host_runtime.h, the error is caused by __cplusplus not being
+defined. My understanding is that the compiler should automatically set
+this definition... but for some reason its undefined.<br><br>I tried
+copying the preprocessor block into another src file in my project, and
+it evaluated correctly. It seems like this is caused by something in
+the nvcc generated source.<br><br>Anyone have any ideas?<br><br><!-- --></p><div class="quotetop">QUOTE(Diego Mazala @ May 2 2008, 12:55 PM)</div><div class="quotemain"><!-- -->I am having problems to compile the example project from FindCuda.cmake.<br><br>I am using VS2005 on XP64. Can anybody help me?<br><br>The error:<br><i><br>1&gt;C:\CUDA\bin/../include\crt/host_runtime.h(57) : error C2632: 'char' followed by 'bool' is illegal<br>1&gt;C:\CUDA\bin/../include\crt/host_runtime.h(57)
+: warning C4091: 'typedef ' : ignored on left of 'char' when no
+variable is declared<br></i><br><br>Any help?<br>Thanks a lot<br>[right][snapback]371732[/snapback][/right]<br><!-- --></div><!-- --><br>
+			<br>
+			<!-- -->
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>Benjii</b>  May 13 2008, 05:54 PM</h4>
+			<p>Looking at this a little more, I think I am slightly off target.<br><br>CMake
+uses NVCC to generate cc source from the cu files. These files are C
+code. The Visual Studio compiler is treating them as C++ though. If I
+force the compiler to treat them as C, then they compile correctly.
+However, now the linker reports "unresolved external symbol" for the
+functions in the cu files<!-- --> <img src="CMake%20build%20script%20for%20Cuda%20-%20NVIDIA%20Forums_files/blink.gif" style="vertical-align: middle;" alt="blink.gif" border="0"><!-- --> <br><br><!-- --></p><div class="quotetop">QUOTE(Benjii @ May 13 2008, 10:01 AM)</div><div class="quotemain"><!-- -->I'm seeing the same problem (also using VS2005, XP64, compiling as 32bit)<br><br>Looking
+at host_runtime.h, the error is caused by __cplusplus not being
+defined. My understanding is that the compiler should automatically set
+this definition... but for some reason its undefined.<br><br>I tried
+copying the preprocessor block into another src file in my project, and
+it evaluated correctly. It seems like this is caused by something in
+the nvcc generated source.<br><br>Anyone have any ideas?<br>[right][snapback]376437[/snapback][/right]<br><!-- --></div><!-- --><br>
+			<br>
+			<!-- -->
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>Benjii</b>  May 13 2008, 07:53 PM</h4>
+			<p>Okay, this is my solution.  I'd love to hear comments on this though.<br><br>In FindCuda.CMake, change:<br><br># Add a custom target to generate a cpp file.<br>SET(generated_file  "${CMAKE_BINARY_DIR}/src/cuda/${file}_${cuda_target}_generated.cpp")<br><br>to:<br><br># Add a custom target to generate a cpp file.<br>SET(generated_file "${CMAKE_BINARY_DIR}/src/cuda/${file}_${cuda_target}_generated.c")<br><br>and just below the line:<br><br>SET_SOURCE_FILES_PROPERTIES(${source_file} PROPERTIES CPLUSPLUS ON)<br><br>add:<br><br>SET_SOURCE_FILES_PROPERTIES(${generated_file} PROPERTIES C ON)<br><br>This will force the NVCC generated files to compile as C under VS 2005.<br><br>My other issues were unrelated to this.<br><br><br><!-- --></p><div class="quotetop">QUOTE(Benjii @ May 13 2008, 10:54 AM)</div><div class="quotemain"><!-- -->Looking at this a little more, I think I am slightly off target.<br><br>CMake
+uses NVCC to generate cc source from the cu files. These files are C
+code. The Visual Studio compiler is treating them as C++ though. If I
+force the compiler to treat them as C, then they compile
+correctly.&nbsp; However, now the linker reports "unresolved external
+symbol" for the functions in the cu files&nbsp;<!-- --> <img src="CMake%20build%20script%20for%20Cuda%20-%20NVIDIA%20Forums_files/blink.gif" style="vertical-align: middle;" alt="blink.gif" border="0"><!-- --><br>[right][snapback]376465[/snapback][/right]<br><!-- --></div><!-- --><br>
+			<br>
+			<!-- -->
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>chene</b>  Jun 2 2008, 09:15 PM</h4>
+			<p><!-- --></p><div class="quotetop">QUOTE(pedroteixeira @ Apr 13 2008, 09:43 PM)</div><div class="quotemain"><!-- -->...<br><br>I am currently running on ubuntu 7.10 and the generate file that gives the linking error is:<br>/usr/bin/c++&nbsp;
+&nbsp; -O3 -DNDEBUG&nbsp; -fPIC $(test_OBJECTS)
+$(test_EXTERNAL_OBJECTS)&nbsp; -o test -rdynamic -L/usr/local/cuda/lib
+-lcuda -lcudart -Wl,-rpath,/usr/local/cuda/lib <br>thanks,<br>Pedro<br><br>...<br><!-- --></div><!-- --><br><br>hi there,<br><br>I'm
+having the exact same problem, and I am using ubuntu 710 as well.
+Nvidia 8800GTS, NVIDIA_CUDA_SDK_1.1_Linux.run,
+NVIDIA_CUDA_Toolkit_1.1_Ubuntu7_x86_64.run.<br><br>has anyone managed to find out what the problem is?<br><br>thank you,
+			<br>
+			<!-- -->
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>curran</b>  Jun 21 2008, 10:59 PM</h4>
+			<p>I
+am also having the same problem as Pedro and Amael, in Ubuntu 8.04. It
+seems there has not been any solution posted for it. Does anyone have
+any ideas or suggestions about how to resolve this problem? Thanks a
+lot! I hope I can get this working! Here is the beginning of my error
+messages:<br><br><!-- --></p><div class="quotetop">QUOTE</div><div class="quotemain"><!-- -->[ 70%] Converting NVCC dependency to CMake (/home/curran/CMake-cuda/build/src/cuda/test_bin.cu_test_generated.cc.depend)<br>[
+80%] Building NVCC /home/curran/CMake-cuda/src/test_bin.cu:
+/home/curran/CMake-cuda/build/src/cuda/test_bin.cu_test_generated.cc<br>Scanning dependencies of target test<br>[ 90%] Building CXX object src/CMakeFiles/test.dir/cuda/test_bin.cu_test_generated.o<br>Linking CXX executable test<br>CMakeFiles/test.dir/cuda/test_bin.cu_test_generated.o: In function `__sti____cudaRegisterAll_16_test_bin_cpp1_ii_dde60ace()':<br>test_bin.cu_test_generated.cc:(.text+0x62e): undefined reference to `__cudaRegisterFatBinary(void*)'<br>test_bin.cu_test_generated.cc:(.text+0x67b):
+undefined reference to `__cudaRegisterFunction(void**, char const*,
+char*, char const*, int, uint3*, uint3*, dim3*, dim3*)'<br>CMakeFiles/test.dir/cuda/test_bin.cu_test_generated.o: In function `__device_stub__Z6kernelPjS_(unsigned int*, unsigned int*)':<br><br><!-- --></div><!-- -->
+			<br>
+			<!-- -->
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>netllama</b>  Jun 22 2008, 02:20 PM</h4>
+			<p>Does this work if you're not using cmake ?
+			<br>
+			<!-- -->
+			</p>
+		</div><div class="printpost">
+			<h4>Posted by: <b>curran</b>  Jun 22 2008, 11:03 PM</h4>
+			<p><!-- --></p><div class="quotetop">QUOTE(netllama @ Jun 22 2008, 03:20 PM)</div><div class="quotemain"><!-- -->Does this work if you're not using cmake ?<br>[right][snapback]398021[/snapback][/right]<br><!-- --></div><!-- --><br>If
+you mean compiling cuda code in general, yes - the makefiles provided
+for the NVidia examples work just fine after setting up my system based
+on
+http://lifeofaprogrammergeek.blogspot.com/2008/05/cuda-development-in-ubuntu.html<br>Sorry
+I didn't mention it, but the errors I got were from trying to compile
+the findcuda.CMake example project following the instructions
+http://www.sci.utah.edu/~abe/FindCuda.html.<br>Thanks for the reply!
+			<br>
+			<!-- -->
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>MichaelSalt</b>  Jul 8 2008, 10:37 AM</h4>
+			<p>Does
+this FindCUDA.cmake script work with Visual Studio 9 (2008) under
+Windows XP using a GeForce 8600m GT? When I attempt to build my
+project, I hit a host of problems. Let me explain...<br><br>First error is this...<br>CMake Error at CUDA/CMake/cuda/FindCuda.cmake:130 (MESSAGE):<br>  Specify CUDA_INSTALL_PREFIX<br>Call Stack (most recent call first):<br>  CMakeLists.txt:4 (INCLUDE)<br><br>To which I manually set the CUDA_INSTALL_PREFIX to C:\CUDA\bin<br><br>Then next...<br>CMake Error: Error required internal CMake variable not set, cmake may be not be built correctly.<br>Missing variable is:<br>CMAKE_FIND_LIBRARY_PREFIXES<br>CMake Error: Error required internal CMake variable not set, cmake may be not be built correctly.<br>Missing variable is:<br>CMAKE_FIND_LIBRARY_SUFFIXES<br>CMake Error at CUDA/CMake/cuda/FindCuda.cmake:180 (MESSAGE):<br>  Could not find cudart library (cudart)<br>Call Stack (most recent call first):<br>  CMakeLists.txt:4 (INCLUDE)<br><br>To which I manually set FOUND_CUDART to C:\CUDA\lib<br><br>CMake Error: Error required internal CMake variable not set, cmake may be not be built correctly.<br>Missing variable is:<br>CMAKE_FIND_LIBRARY_PREFIXES<br>CMake Error: Error required internal CMake variable not set, cmake may be not be built correctly.<br>Missing variable is:<br>CMAKE_FIND_LIBRARY_SUFFIXES<br>CMake Error: Error required internal CMake variable not set, cmake may be not be built correctly.<br>Missing variable is:<br>CMAKE_FIND_LIBRARY_PREFIXES<br>CMake Error: Error required internal CMake variable not set, cmake may be not be built correctly.<br>Missing variable is:<br>CMAKE_FIND_LIBRARY_SUFFIXES<br>CMake Error: Error required internal CMake variable not set, cmake may be not be built correctly.<br>Missing variable is:<br>CMAKE_FIND_LIBRARY_PREFIXES<br>CMake Error: Error required internal CMake variable not set, cmake may be not be built correctly.<br>Missing variable is:<br>CMAKE_FIND_LIBRARY_SUFFIXES<br><br>I then set FOUND_CUT to C:\Program Files\NVIDIA Corporation\NVIDIA CUDA SDK\common\inc<br><br>Which leads to the following error, where I get stuck...<br>CMake Error: Error required internal CMake variable not set, cmake may be not be built correctly.<br>Missing variable is:<br>CMAKE_FIND_LIBRARY_PREFIXES<br>CMake Error: Error required internal CMake variable not set, cmake may be not be built correctly.<br>Missing variable is:<br>CMAKE_FIND_LIBRARY_SUFFIXES<br><br>What
+could I possibly be doing wrong? I thought that this script was
+supposed to find CUDA automatically. Could it be that I am using a
+mobile GPU that is causing issues? My CUDA installation is all default,
+version 1.1.<br><br>Cheers,<br><br>Mike
+			<br>
+			<!-- -->
+			</p>
+		</div><div class="printpost">
+			<h4>Posted by: <b>MichaelSalt</b>  Jul 8 2008, 12:53 PM</h4>
+			<p>Sorry,
+please disregard my previous post. My supervisor encouraged me to
+include the CUDA script before declaring the project. This is obviously
+not right. If I declare it after the project, it works well. The only
+thing it does not do is set the additional libraries correctly. That
+should prove not too difficult, but please feel free to make
+suggestions.<br><br>Thank you Abe for providing FindCUDA.cmake to us all.<br><br>Mike
+			<br>
+			<!-- -->
+			</p>
+		</div><div class="printpost">
+			<h4>Posted by: <b>minuc</b>  Jul 16 2008, 07:24 PM</h4>
+			<p>Hi!!<br><br>I'm using FindCuda.cmake to compile a project with Visual Studio 2005.<br><br>But if I build solution by Visual Studio the output is:<br><br><!-- --></p><div class="quotetop">QUOTE</div><div class="quotemain"><!-- -->CUDA_renderAlgo.cu<br>nvcc error&nbsp;  : 'cudafe' died with status 0xC0000005 (ACCESS_VIOLATION)<br>CMake Error at C:/MATERIALETESI/VolumeRenderingCuda_cuda_merge/CMake/cuda/parse_cubin.cmake:31 (FILE):<br>&nbsp; file Internal CMake error when trying to open file:<br>&nbsp; C:/MATERIALETESI/VolumeRenderingCuda_cuda_merge/bin/src/cuda/CUDA_renderAlgo.cu_generated.cpp.NVCC-cubin.txt<br>&nbsp; for reading.<br>Project : error PRJ0019: <br>
+"Building NVCC -cubin File:
+C:/MATERIALETESI/VolumeRenderingCuda_cuda_merge/bin/src/cuda/CUDA_renderAlgo.cu_generated.cpp.NVCC-cubin.txt<br><!-- --></div><!-- --><br><br><br>If I compile by command line I've the same error (stop building with cudafe error) but the output is:<br><!-- --><div class="quotetop">QUOTE</div><div class="quotemain"><!-- -->C:\Programmi\Visual Studio 8\VC\INCLUDE\wtime.inl&lt;50&gt; warning function "_wctime64"<br>
+C:\Programmi\Visual Studio 8\VC\INCLUDE\time.h&lt;257&gt; here was
+declared "deprecated" ("This function or variable may be unsafe.
+Consider using _wctime64_s instead.<br><br>nvcc error : 'cudafe' died with status 0xC0000005 (ACCESS_VIOLATION)<!-- --></div><!-- --><br><br>What's the error?<br><br>Thank you!!<br><br>
+			<br>
+			<!-- -->
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>abestephens2</b>  Jul 25 2008, 04:22 PM</h4>
+			<p>Several
+developers reported this issue directly via email. Newer versions of
+the toolkit (e.g. version string "Built on
+Tue_Jun_10_04:42:57_PDT_2008") produce .cpp files (not .c) with the
+-cuda option.<br><br>To check for yourself run:<br><br><!-- --></p><div class="codetop">CODE</div><div class="codemain"><!-- --><br>cd build<br>nvcc -cuda ../src/test_bin.cu -I../src; ls test_bin*<br># The output should be:<br>test_bin.cu.cpp<br><!-- --></div><!-- --><br><br>The
+svn HEAD revision of the script is not necessarily backwards
+compatible. Try updating your version of the toolkit or checking out an
+older version of the script from svn. The svn log contains notes about
+updates for specific nvcc platforms and versions.<br><br>This is
+unrelated to use of the --host-compilation flag which is necessary when
+the .cu file contains c++ host code. To add flags to the nvcc command
+modify the CMake variable CUDA_NVCC_FLAGS (note the use of semi-colons
+in place of spaces). <br><br>Abe<br>
+			<br>
+			<!-- -->
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>curran</b>  Jul 31 2008, 02:22 PM</h4>
+			<p>I upgraded to the CUDA Toolkit 2.0 Beta for Ubuntu 7.10 (I'm running 8.04 though), and it works! Thanks Abe!<br><br>The example project compiles and runs just fine. Now I want to compile something which includes cutil.h. If I add<br><!-- --></p><div class="codetop">CODE</div><div class="codemain"><!-- -->#include&lt;cutil.h&gt;<!-- --></div><!-- --><br>to main.cc in the example project (this is the only change), <span style="color: green;">cmake</span> runs fine, then when I run <span style="color: green;">make</span> I get:<br><span style="color: red;">error: cutil.h: No such file or directory</span><br><br>This
+is expected, because I need to somehow tell CMake that "test" depends
+on "cutil.h" I have been struggling all day on this, searching forums
+and the CMake documentation for how to do this, but I have just had no
+success. I've tried all kinds of permutations like<br>TARGET_LINK_LIBRARIES(<br>test ${CUDA_CUT_INCLUDE}<br>)<br>in
+the /src/CMakeLists.txt file, with various names mentioned on the
+findcuda.cmake page, and the error never goes away. I have the feeling
+it's something trivial I am missing because I am new to CMake. Does
+anyone know how to set this up? Any help would be greatly appreciated! <br>
+			<!-- -->
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>Linny</b>  Jul 31 2008, 02:50 PM</h4>
+			<p><!-- --></p><div class="quotetop">QUOTE(curran @ Jul 31 2008, 04:22 PM)</div><div class="quotemain"><!-- -->I upgraded to the CUDA Toolkit 2.0 Beta for Ubuntu 7.10 (I'm running 8.04 though), and it works! Thanks Abe!<br><br>The example project compiles and runs just fine. Now I want to compile something which includes cutil.h. If I add<br><!-- --><div class="codetop">CODE</div><div class="codemain"><!-- -->#include&lt;cutil.h&gt;<!-- --></div><!-- --><br>to main.cc in the example project (this is the only change), <span style="color: green;">cmake</span> runs fine, then when I run <span style="color: green;">make</span> I get:<br><span style="color: red;">error: cutil.h: No such file or directory</span><br><br>This
+is expected, because I need to somehow tell CMake that "test" depends
+on "cutil.h" I have been struggling all day on this, searching forums
+and the CMake documentation for how to do this, but I have just had no
+success. I've tried all kinds of permutations like<br>TARGET_LINK_LIBRARIES(<br>test ${CUDA_CUT_INCLUDE}<br>)<br>in
+the /src/CMakeLists.txt file, with various names mentioned on the
+findcuda.cmake page, and the error never goes away. I have the feeling
+it's something trivial I am missing because I am new to CMake. Does
+anyone know how to set this up? Any help would be greatly appreciated!<br>[right][snapback]418778[/snapback][/right]<br><!-- --></div><!-- --><br><br>Check
+http://forums.nvidia.com/index.php?showtopic=71820&amp;view=findpost&amp;p=406609.
+I posted my cmakelists.txt that links other files, this might help you.<br>
+			<br>
+			<!-- -->
+			
+		</div><div class="printpost">
+			<h4>Posted by: <b>MisterAnderson42</b>  Jul 31 2008, 04:07 PM</h4>
+			<p><!-- --></p><div class="quotetop">QUOTE(curran @ Jul 31 2008, 08:22 AM)</div><div class="quotemain"><!-- -->TARGET_LINK_LIBRARIES(<br>test ${CUDA_CUT_INCLUDE}<br>)<br>[right][snapback]418778[/snapback][/right]<br><!-- --></div><!-- --><br>You probably mean <br><!-- --><div class="codetop">CODE</div><div class="codemain"><!-- --><br>INCLUDE_DIRECTORIES( ${CUDA_CUT_INCLUDE} )<br>TARGET_LINK_LIBRARIES( my_target ${CUDA_CUT_TARGET_LINK} )<br><!-- --></div><!-- --><br>http://www.cmake.org/HTML/CMake-2.4.html
+			<br>
+			<!-- -->
+			
+		</div><!-- -->
+
+	</div>
+</body></html>

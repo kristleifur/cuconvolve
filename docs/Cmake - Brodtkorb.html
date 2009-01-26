@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+
+ 
+  <title>Brodtkorb : Cmake </title>
+  <meta name="author" content="André Rigland Brodtkorb">
+  <meta name="description" content="The home page of André Rigland Brodtkorb">
+  <meta name="keywords" content="andre, andre rigland, andre brodtkorb, andre rigland brodtkorb, brodtkorb, rigland
+  brodtkorb, andré, andré rigland, andré brodtkorb, andré rigland brodtkorb,
+  andre r brodtkorb,
+  gpu, gpgpu, sintef, ifi, institiutt for informatikk, uio, university of oslo,
+  universitetet i oslo">
+  <meta name="robots" content="index">
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta http-equiv="Content-Language" content="en">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="imagetoolbar" content="no">
+  <meta name="MSSmartTagsPreventParsing" content="true">
+  <link rel="icon" href="http://babrodtk.at.ifi.uio.no/wiki/pub/skins/lean/leanicon.gif" type="image/gif">
+  <link rel="SHORTCUT ICON" href="http://babrodtk.at.ifi.uio.no/wiki/pub/skins/lean/leanicon.gif">
+  <!--HeaderText--><style type="text/css"><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style>  <meta name="robots" content="index,follow">
+
+  <link rel="stylesheet" title="Lean" href="Cmake%20-%20Brodtkorb_files/lean.css" type="text/css">
+ </head><body>
+  <!--PageHeaderFmt-->
+  <table summary="Site: Header" id="siteheadtable" align="center" border="0" cellpadding="0" cellspacing="0" width="770">
+   <tbody><tr>
+    <td id="headlogo" colspan="1" rowspan="1" title="Brodtkorb Home">
+     <!-- Use (uncomment) either the logo image version or the text version. -->
+     <div id="sitelogo"><a href="http://babrodtk.at.ifi.uio.no/"><img src="Cmake%20-%20Brodtkorb_files/brodtkorb.png" alt="Brodtkorb" border="0"></a></div>
+     <!--
+     <div id='sitelogotext'><a href='http://babrodtk.at.ifi.uio.no'>Brodtkorb</a></div>
+     -->
+    </td>
+<!--
+   </tr>
+   <tr>
+    <td id='headsiteloc'>
+     <div id='sitelocgroup'>
+      <span id='sitegroupforheader'>
+       <a href='http://babrodtk.at.ifi.uio.no/Research'
+          title='Research Home'>Research</a></span> /
+     </div>
+     <div id='siteloctitle' title='Cmake was last modified on April 16, 2008, at 09:46 AM'>
+      <h1>Cmake</h1>
+     </div>
+    </td>
+-->
+    <td id="siteheadcmds">
+     <div id="headcmdslower">
+      <span id="headprint"><a rel="nofollow" href="http://babrodtk.at.ifi.uio.no/Research/Cmake?action=print" title="Printable view of this page">Print</a> |</span>
+      <span class="headsearch"><a href="http://babrodtk.at.ifi.uio.no/Site.Search" title="Search the site" rel="nofollow">Search</a>: </span><form class="headsearch search" action="http://babrodtk.at.ifi.uio.no"><input class="searchbox" name="q" value="" size="40" type="text"><input class="searchbutton" value="Go" type="submit">
+       <!-- version > beta53 -->
+       <!-- <input type='hidden' name='n' value='Research.Cmake' /><input type='hidden' name='action' value='search' /> -->
+       <!-- version < beta53 -->
+       <input name="n" value="Site.Search" type="hidden">
+      </form></div>
+    </td>
+   </tr>
+  </tbody></table>
+  <!--/PageHeaderFmt-->
+  
+  <table summary="Site: Main" id="contentmain" align="center" border="0" cellpadding="0" cellspacing="0" width="770">
+   <tbody>
+    <tr>
+     <!--PageLeftFmt-->
+     <td id="mainsidebar">
+      <p class="sidehead"> <strong>Personal</strong>
+</p><ul><li><a class="wikilink" href="http://babrodtk.at.ifi.uio.no/Personal/Contact">Contact</a>
+</li><li><a class="external" target="_blank" href="http://babrodtk.at.ifi.uio.no/files/cv.pdf">Résumé / CV</a> <span style="font-size: 69%;"> [PDF] </span>
+</li></ul><p class="vspace"></p><p class="sidehead"> <strong>Research</strong>
+</p><ul><li><a class="wikilink" href="http://babrodtk.at.ifi.uio.no/Research/Phd">Ph.D.</a> (2010)
+</li><li><a class="wikilink" href="http://babrodtk.at.ifi.uio.no/Research/Master">M.Sc.</a> (2007)
+</li><li><a class="wikilink" href="http://babrodtk.at.ifi.uio.no/Research/Publications">Publications</a>
+</li><li><a class="wikilink" href="http://babrodtk.at.ifi.uio.no/Research/Talks">Talks</a>
+</li><li><a class="wikilink" href="http://babrodtk.at.ifi.uio.no/Research/Hcsig">HCSIG</a>
+</li><li><a class="wikilink" href="http://babrodtk.at.ifi.uio.no/Research/Education">Education</a> 
+</li><li><a class="wikilink" href="http://babrodtk.at.ifi.uio.no/Research/Software">Software</a>
+</li></ul><p class="vspace"></p><p class="sidehead"> <strong>External Links</strong>
+</p><ul><li><a class="external" target="_blank" href="http://www.skarv.org/">Personal webpage</a>
+</li><li><a class="external" target="_blank" href="http://www.sintef.no/math/master">Masters Projects</a>
+</li><li><a class="external" target="_blank" href="https://alumnus.uio.no/public/channelSelect/channelChange.asp?ct_sid=51805">IFI Alumni</a>
+</li></ul><p class="vspace"></p>
+
+      
+      <div id="sidebarbottom">
+       <span style="white-space: nowrap;"><a rel="nofollow" href="http://validator.w3.org/check/referer" title="Validate XHTML">XHTML</a></span>
+      </div>
+     </td>
+     <!--/PageLeftFmt-->
+     <td id="mainsitetext">
+      <!-- table to work around an NS4 bug -->
+      <table summary="Content Body" id="sitebody" border="0" cellpadding="0" cellspacing="0"> 
+       <tbody><tr>
+        <td>
+         <!--PageTitleFmt-->
+         <div id="sitepagetitle" title="Cmake was last modified on April 16, 2008, at 09:46 AM">
+          <span style="display: none;">Cmake</span>
+         </div>
+         <!--PageText-->
+<div id="wikitext">
+<h2><span class="wikiword">CMake</span></h2>
+<p>I have more or less converted from GNU Make to <a class="external" target="_blank" href="http://cmake.org/">CMake</a> as my build tool, and have found it satisfactory til this point.
+</p>
+<p class="vspace"></p><p>The best selling point is that it is extremely
+easy to have several different build configurations (e.g one using
+gcc-4.3.1, another using gcc-4.1.1). Another good point is that it is
+very easy to package build rules into cmake scripts to avoid clutter.
+</p>
+<p class="vspace"></p><p>On the downside, however, it does have some quirks. I do not like the syntax at all, and there are several bugs.
+</p>
+<p class="vspace"></p><p>Nevertheless, I feel content with the switch
+from GNU Make, and have started writing some cmake scripts to package
+build rules. I have currently written the following scripts:
+</p>
+<p class="vspace"></p><ul><li><span class="wikiword">OpenMP</span>.cmake - Finds out whether your compiler supports <span class="wikiword">OpenMP</span>, and enables the correct compiler flags.
+</li><li><span class="wikiword">FindCell</span>_SDK.cmake - Finds out
+wheter you have support for the Cell SDK and Cell toolchain. Also sets
+up build rules for SPU code (also see my <a class="wikilink" href="http://babrodtk.at.ifi.uio.no/Research/CrossCompiling">crosscompiling for the Cell BE</a>)
+</li><li><span class="wikiword">FindCUDA</span>.cmake - Finds out wheter you have the cuda build tools, and sets up build rules (see also Abe Stephens' <a class="external" target="_blank" href="http://www.sci.utah.edu/%7Eabe/FindCuda.html">FindCuda.cmake</a> for an alternative. I found this version to be too complex, and wrote my own instead).
+</li><li><span class="wikiword">FindCUDA</span>_SDK.cmake - Finds out whether you have installed the CUDA SDK, and sets appropriate options.
+</li><li><span class="wikiword">BoostTest</span>.cmake - Simple rules to automatically build and run Boost unit tests.
+</li></ul><p class="vspace"></p><p>If any of these scripts seem interresting to you, please drop me an <a class="urllink" href="mailto:babrodtk@ifi.uio.no" rel="nofollow">email</a>, and I can send you a repository export of them :)
+</p>
+</div>
+
+        </td>
+       </tr>
+      </tbody></table>
+     </td>
+    </tr>
+    <tr>
+     <td id="mainsitefoot" colspan="2" rowspan="1">
+      <table summary="Wiki: Footer" border="0" cellpadding="0" cellspacing="0" width="100%">
+      <!--PageFooterFmt-->
+       <tbody><tr>
+        <td id="footleft">
+         <a rel="nofollow" href="http://babrodtk.at.ifi.uio.no/Research/Cmake?action=login">Log In</a>
+        </td>
+        <td id="footmiddle">
+         <span id="footlastmod">Page last modified on April 16, 2008, at 09:46 AM</span> 
+        </td>
+        <td id="footright">
+         
+        </td>
+       </tr>
+       <!--/PageFooterFmt-->
+       <tr>
+        <td id="sitesole" colspan="3" rowspan="1">
+          
+        </td>
+       </tr>
+      </tbody></table>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <!-- Lean Skin v0.14.3
+  vim: expandtab sw=1 ts=1 sts=1 :
+  -->
+ </body></html>

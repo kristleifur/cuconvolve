@@ -1,0 +1,8 @@
+#ifndef CU_LIB_CU_CONVOLVE_CU // yes I know, I'm sorry
+#define CU_LIB_CU_CONVOLVE_CU
+
+extern "C"
+int convolve(float2 *out_r, float2 *in_a, in_b, unsigned int size);
+
+
+#endif

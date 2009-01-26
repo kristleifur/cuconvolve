@@ -1,7 +1,10 @@
+#include "convolveKernelConstants.h"
+#include "kernelHelpers.cu.h" // IMUL etc.
+
 extern "C"
-__global__ void ComplexMAdd( float2 *result, float2 *a, float2 b )
+__global__ void CUDA_ComplexMAdd( float2 *result, float2 *a, float2 b )
 {
-	unsigned int i = IMUL(blockIdx.x, ComplexMAdd_BLOCKSIZE) + threadIdx.x;
+	unsigned int i = IMUL(blockIdx.x, CU_CONVOLVE_BLOCKSIZE) + threadIdx.x;
 		// res_t is the result for thread i, like one step in the for(i < n) loop
 		// a_t and b_t are the same
 		// this is to get basic "caching" of .x and .y values for global mem R/W
@@ -14,9 +17,9 @@ __global__ void ComplexMAdd( float2 *result, float2 *a, float2 b )
 }
 
 extern "C"
-__global__ void ComplexMAdd_tZero( float2 *result, float2 *a, float2 b )
+__global__ void CUDA_ComplexMAdd_tZero( float2 *result, float2 *a, float2 b )
 {
-	unsigned int i = IMUL(blockIdx.x, ComplexMAdd_BLOCKSIZE) + threadIdx.x;
+	unsigned int i = IMUL(blockIdx.x, CU_CONVOLVE_BLOCKSIZE) + threadIdx.x;
 		// res_t is the result for thread i, like one step in the for(i < n) loop
 		// a_t and b_t are the same
 		// this is to get basic "caching" of .x and .y values for global mem R/W
@@ -35,9 +38,9 @@ __global__ void ComplexMAdd_tZero( float2 *result, float2 *a, float2 b )
 }
 
 extern "C"
-__global__ void ComplexM( float2 *result, float2 *a, float2 b )
+__global__ void CUDA_ComplexM( float2 *result, float2 *a, float2 b )
 {
-	unsigned int i = IMUL(blockIdx.x, ComplexMAdd_BLOCKSIZE) + threadIdx.x;
+	unsigned int i = IMUL(blockIdx.x, CU_CONVOLVE_BLOCKSIZE) + threadIdx.x;
 		// res_t is the result for thread i, like one step in the for(i < n) loop
 		// a_t and b_t are the same
 		// this is to get basic "caching" of .x and .y values for global mem R/W
@@ -50,9 +53,9 @@ __global__ void ComplexM( float2 *result, float2 *a, float2 b )
 }
 
 extern "C"
-__global__ void ComplexM_tZero( float2 *result, float2 *a, float2 b )
+__global__ void CUDA_ComplexM_tZero( float2 *result, float2 *a, float2 b )
 {
-	unsigned int i = IMUL(blockIdx.x, ComplexMAdd_BLOCKSIZE) + threadIdx.x;
+	unsigned int i = IMUL(blockIdx.x, CU_CONVOLVE_BLOCKSIZE) + threadIdx.x;
 		// res_t is the result for thread i, like one step in the for(i < n) loop
 		// a_t and b_t are the same
 		// this is to get basic "caching" of .x and .y values for global mem R/W

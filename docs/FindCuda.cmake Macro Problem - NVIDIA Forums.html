@@ -1,0 +1,3163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head> 
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="http://forums.nvidia.com/favicon.ico">
+<title>FindCuda.cmake Macro Problem? - NVIDIA Forums</title>
+ 
+<style type="text/css">
+	/*  
+ * Cascading Style Sheet(CSS 467), for Invision Power Board 2.2.0
+ * Author: James A. Mathias, admin@leihu.com, http://www.1lotus.com 
+ * Copyright: 2005 Invision Power Services, all rights reserved 
+ *
+ * All style attributes in alpha-numeric order starting from 0
+ *
+ */
+
+/* 
+ * ========================================
+ * global element styles 
+ * ========================================
+ */
+
+html{
+	overflow-x: auto; /* fixes MSIE scrollbar bug DO NOT REMOVE, has no effect in Mozilla, or Opera */
+}
+
+body{ 
+	background: #FFF;
+	color: #222;
+	font-family: Verdana, Tahoma, Arial, Trebuchet MS, Sans-Serif, Georgia, Courier, Times New Roman, Serif;
+	font-size: 11px;
+	line-height: 135%;
+	margin: 0px;
+	padding: 0px; /* required for Opera to have 0 margin */
+	text-align: center; /* centers board in MSIE */
+}
+
+/* 
+ * ========================================
+ * Set up IPB table
+ * ========================================
+ */
+ 
+.ipbtable { width:100% }
+
+table.ipbtable,
+tr.ipbtable,
+td.ipbtable
+{ /* required for text in tables, because tables do not inherit from body */
+	background: transparent;
+	color: #222;
+	font-size: 11px;
+	line-height: 135%;
+}
+
+.ipbtable td,
+.divpad{ /* gives all tables faux cellpadding of 5px */
+	padding: 5px;
+}
+
+td.nopad{ /* allows some tables to have no padding on the td */
+	padding: 0;
+}
+
+/* Safari... */
+th
+{
+	text-align: left;
+}
+
+
+form{
+	display: inline;
+	margin: 0; /* removes mystery form tag gapping */
+	padding: 0; /* removes mystery form tag gapping */
+}
+
+img{
+	border: 0; /* makes sure linked images do not have a border */
+	vertical-align: middle;
+}
+
+/* 
+ * ========================================
+ * global hyperlink styles 
+ * ========================================
+ */
+
+a:link,
+a:visited,
+a:active{
+	background: transparent;
+	color: #222;
+	text-decoration: underline;
+}
+
+a:hover{
+	background: transparent;
+	color: #34498B;
+}
+
+/* 
+ * ========================================
+ * Main wrapper, this controls the overall width of the board in you browser view window. 
+ * ========================================
+ */
+
+#ipbwrapper{ 
+	margin: 20px auto 20px auto; /* centers the box, no matter the overall width, also applies a 20px gap at the top and bottom of the board */
+	text-align: left; /* re_aligns text to left second part of two part MSIE centering workaround */
+	/* EDIT THIS TO CHANGE THE WIDTH OF THE BOARD -> 960px is a common fixed resolution size */
+	width: 98%;
+}
+
+/* 
+ * ========================================
+ * styles for pagination links 
+ * ========================================
+ */
+ 
+
+.pagelink,
+.pagelinklast,
+.pagecurrent,
+.minipagelink,
+.minipagelinklast{
+	background: #FBFBFB;
+	border: 1px solid #A2A2A2;
+	padding: 1px 3px 1px 3px;
+}
+
+.pagelinklast,
+.minipagelinklast{
+	background: #F7F7F7;
+}
+
+
+.pagecurrent{
+	background: #FFC9A5;
+}
+
+.minipagelink,
+.minipagelinklast{
+	border: 1px solid #DBDBDB;
+	font-size: 10px;
+	margin: 0 1px 0 0;
+}
+
+.pagelink a:active,
+.pagelink a:visited,
+.pagelink a:link,
+.pagelinklast a:active,
+.pagelinklast a:visited,
+.pagelinklast a:link,
+.pagecurrent a:active,
+.pagecurrent a:visited,
+.pagecurrent a:link,
+.minipagelink a:active,
+.minipagelink a:visited,
+.minipagelink a:link,
+.minipagelinklast a:active,
+.minipagelinklast a:visited,
+.minipagelinklast a:link{
+	text-decoration: none;
+}
+
+/* fake button effect for some links */
+.fauxbutton{
+	background: #BFCDE0;
+	border: 1px solid #b4b4b4;
+	font-size: 11px;
+	font-weight: bold;
+	padding: 4px;
+}
+
+.fauxbutton a:link,
+.fauxbutton a:visited,
+.fauxbutton a:active{
+	color: #222 !important;
+	text-decoration: none;
+}
+
+.forumdesc,
+.forumdesc a:link,
+.forumdesc a:visited,
+.forumdesc a:active{ 
+	background: transparent;
+	font-size: 10px; 
+	color: #666;
+	line-height: 135%;
+	margin: 2px 0 0 0;
+	padding: 0;
+}
+
+/* =================================================================================== */
+/* =================================================================================== */
+/* =================================================================================== */
+
+.searchlite {
+	background-color:yellow;
+	font-weight:bold;
+	color: red;
+}
+
+.activeusers{
+	background: #FFF;
+	border: 1px solid #B4B4B4;
+	color: #000;
+	margin: 0px;
+	padding: 1px;
+}
+
+.activeuserposting a:link,
+.activeuserposting a:visited,
+.activeuserposting a:active,
+.activeuserposting
+{
+	font-style:italic;
+	text-decoration: none;
+	border-bottom:1px dotted black;
+}
+
+fieldset.search{ 
+	line-height: 150%;
+	padding: 6px; 
+}
+
+label{ 
+	cursor: pointer; 
+}
+
+img.attach{ 
+	background: #808080 url(style_images/cudazone/click2enlarge.gif) no-repeat top right;
+	border: 1px solid #808080;
+	margin: 0 2px 0 0;
+	padding: 11px 2px 2px 2px;
+}
+
+.thumbwrap,
+.thumbwrapp,
+.fullimagewrap
+{
+	border: 1px solid #B4B4B4;
+	margin: 2px;
+}
+
+.thumbwrapp{
+	border: 2px solid #660707;
+}
+
+.fullimagewrap{
+	background: #F7F7F7;
+	text-align: center;
+	margin: 5px 0 5px 0;
+	padding: 5px;
+}
+
+.thumbwrap h4,
+.thumbwrapp h4{	
+	background: #DDE6F2;
+	border: 0 !important;
+	border-bottom: 1px solid #525252 !important;
+	color: #525252; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0;
+	padding: 5px;
+}
+
+.thumbwrap p,
+.thumbwrapp p{
+	background: #F6F8F6 !important;
+	border: 0 !important;
+	border-top: 1px solid #525252 !important;
+	margin: 0 !important;
+	padding: 5px !important;
+	text-align: left;
+}
+
+.thumbwrap p.alt,
+.thumbwrapp p.alt{
+	background: #F7F7F7 !important;
+	margin: 0 !important;
+	padding: 5px !important;
+	text-align: left;
+}
+
+.thumbwrapp p.pin{
+	background: #EFDFDF !important;
+	text-align: center !important;
+}
+	
+.thumbwrap img.galattach,
+.thumbwrapp img.galattach{
+	background: #FFF url(style_images/cudazone/img_larger.gif) no-repeat bottom right;
+	border: 1px solid #B4B4B4;
+	margin: 5px;
+	padding: 2px 2px 10px 2px;
+}
+
+li.helprow{ 
+	margin: 0 0 10px 0;
+	padding: 0; 
+}
+
+ul#help{ 
+	padding: 0 0 0 15px; 
+}
+
+.warngood,
+.warnbad{ 
+	color: #0B9500;
+	font-weight: bold;
+}
+
+.warnbad{ 
+	color: #DD0000;
+}
+
+#padandcenter{ 
+	margin: 0 auto 0 auto;
+	padding: 14px 0 14px 0;
+	text-align: center;
+}
+
+#profilename{ 
+	font-size: 28px; 
+	font-weight: bold; 
+}
+
+#photowrap{ 
+	padding: 6px; 
+}
+
+#phototitle{ 
+	border-bottom: 1px solid #000; 
+	font-size: 24px; 
+}
+
+#photoimg{ 
+	margin: 15px 0 0 0;
+	text-align: center; 
+} 
+
+#ucpmenu,
+#ucpcontent{ 
+	background: #F7F7F7;
+	border: 1px solid #345487;
+	line-height: 150%;
+}
+
+#ucpmenu p{ 
+	margin: 0; 
+	padding: 2px 5px 6px 9px;
+}
+
+#ucpmenu a:link, 
+#ucpmenu a:active, 
+#ucpmenu a:visited{ 
+	text-decoration: none; 
+}
+
+#ucpcontent{ 
+	width: auto;
+}
+
+#ucpcontent p{ 
+	margin: 0;
+	padding: 10px;
+}
+
+.activeuserstrip{ 
+	background: #E2E1E1;
+	padding: 6px;
+}
+
+/* Topic View elements */
+.signature{  
+	background: transparent;
+	color: #339; 
+	font-size: 10px;
+	line-height: 150%;
+}
+
+.postdetails{ 
+	font-size: 10px;
+	line-height:140%;
+}
+
+.postcolor{ 
+	font-size: 12px; 
+	line-height: 160%;
+}
+
+.normalname{ 
+	color: #003;
+	font-size: 12px; 
+	font-weight: bold; 
+}
+
+.normalname a:link, 
+.normalname a:visited, 
+.normalname a:active{ 
+	font-size: 12px;
+}
+
+.post1,
+.bg1{ 
+	background: #F7F7F7;
+}
+
+.post2,
+.bg3{ 
+	background: #F6F8F6;
+}
+
+.row2shaded,
+.post1shaded { background-color: #DEDBE4 }
+.row4shaded,
+.post2shaded { background-color: #E3DFE7 }
+
+.row1{ 
+	background: #F7F7F7; 
+}
+
+.row2{ 
+	background: #F7F7F7; 
+}
+
+.rowhighlight{
+	background-color: #FFF9BA;
+}
+
+.darkrow1{ 
+	background: #E2E1E1;
+	color: #666666; 
+}
+
+.darkrow3{ 
+	background: #e7e6e6; 
+	color: #666666; 
+}
+
+/* tableborders gives the white column / row lines effect */
+.plainborder,
+.tablefill,
+.tablepad{ 
+	background: #f7f7f7;
+	border: 1px solid #345487;
+}
+
+.tablefill,
+.tablepad{ 
+	padding: 6px;  
+}
+
+.tablepad{ 
+	border: 0 !important;
+}
+
+.wrapmini{ 
+	float: left;
+	line-height: 1.5em;
+	width: 25%;
+}
+
+.pagelinks{
+	float: left;
+	line-height: 1.2em;
+	width: 35%;
+}
+
+.desc{ 
+	font-size: 11px; 
+	color: #434951;
+}
+
+.lastaction
+{
+	font-size: 10px; 
+	color: #434951;
+}
+
+.edit{ 
+	font-size: 9px;
+}
+
+.thin{ 
+	border: 1px solid #FFF;
+	border-left: 0;
+	border-right: 0;
+	line-height: 150%;
+	margin: 2px 0 2px 0;
+	padding: 6px 0 6px 0;
+}
+
+/* =================================================================================== */
+/* =================================================================================== */
+/* =================================================================================== */
+
+/* 
+ * ========================================
+ * calendar styles 
+ * ========================================
+ */
+	
+.calmonths{ 
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	font-size: 18px; 
+	font-weight: bold; 
+	margin: 5px 0 5px 0;
+	padding: 8px;
+	text-align: center;
+}
+
+.weekday{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.calmonths a{
+	text-decoration: none;
+}
+
+.calday,
+.calweekday{ 
+	background: #F7F7F7;
+	color: #666;
+	font-size: 11px;
+	font-weight: bold;
+	margin: 0;
+	padding: 4px;
+	text-align: right;
+}
+
+.calweekday{
+	border-right: 1px solid #AAA;
+	color: #222;
+	font-size: 14px;
+	padding: 6px;
+	text-align: center;
+}
+
+.celltodayshaded,
+.celldateshaded,
+.cellblank,
+.celldate,
+.celltoday,
+.mcellblank,
+.mcelldate,
+.mcelltoday{
+	background: #F6F8F6; 
+	height: 100px;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+
+.celltodayshaded,
+.celldateshaded
+{
+	background: #E3DFE7;
+}
+
+.mcellblank,
+.mcelldate,
+.mcelltoday{
+	height: auto;
+}
+
+.cellblank,
+.mcellblank{
+	background: #DBDBDB;
+}
+
+.celltoday,
+.celltodayshaded,
+.mcelltoday{
+	border: 2px solid #8B0000;
+}
+
+.calranged
+{
+	border: 2px outset #DBDBDB;
+	background: #DBDBDB;
+	padding:4px;
+}
+
+.calitem
+{
+	border-bottom: 1px dotted #DBDBDB;
+	padding:4px;
+}
+
+/* 
+ * ========================================
+ * form styles 
+ * ========================================
+ */
+
+.input-warn,
+.input-green,
+.input-checkbox,
+input,
+textarea,
+select{
+	background: #FFF;
+	border: 1px solid #D1D1D1;
+	color: #000;
+	font-family: verdana, helvetica, sans-serif;
+	font-size: 11px;
+	margin: 5px;
+	padding: 2px;
+	vertical-align: middle;
+}
+
+select
+{
+	margin: 0px;
+}
+
+.input-checkbox
+{
+	border: none;
+}
+
+.input-warn,
+.input-warn-content
+{
+	border: 1px solid #C00;
+}
+
+.input-ok,
+.input-ok-content
+{
+	border: 1px solid #0C0;
+}
+
+.input-warn-content
+{
+	padding: 4px;
+	margin: 4px;
+	background-color: #FCC;
+}
+
+.input-ok-content
+{
+	padding: 4px;
+	margin: 4px;
+	background-color: #CFC;
+}
+
+
+.input-text
+{
+	color: #900;
+}
+
+input.button{
+	margin: 0;
+	width: auto;
+	cursor: hand;
+	cursor: pointer;
+}
+
+optgroup option{
+	font-family: verdana, helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.codebuttons{ 
+	font-family: Verdana, Helvetica, Sans-Serif; 
+	font-size: 10px; 
+	vertical-align: middle;
+	margin:2px;
+}
+
+.textarea,
+.searchinput,
+.button,
+.gobutton{
+	background: #FFF;
+	border: 1px solid #4C77B6;
+	color: #000;
+	font-family: Verdana, Helvetica, Sans-Serif;
+	font-size: 11px;
+	padding: 2px;
+	vertical-align: middle;
+}
+	
+.button{
+	background: #F7F7F7;
+}
+
+.gobutton{
+	background: transparent;
+	border: 0;
+	color: #b4b4b4;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.radiobutton,
+.checkbox,
+.helpbox { 
+	border: 0;
+	vertical-align: middle;
+	background: transparent;
+}
+
+/* 
+ * class.formtable 
+ *
+ * used for tabled forms 
+ * technically tables should not be used for form display 
+ * but, in the case of IPB a table is easier to work with
+ * for the average webmaster, who has little to no CSS knowledge.
+ *
+ */
+
+.formtable{
+	background: transparent;
+}
+
+.formtable td,
+.pformleft,
+.pformleftw,
+.pformright{
+	background:#F7F7F7;
+	border: 1px solid #DBDBDB;
+	border-bottom: 0;
+	border-left: 0;
+	font-weight: bold;
+	margin: 1px 0 0 0;
+	padding: 6px;
+	width: 25%;
+} 
+
+.formtable td.wider,
+.pformleftw,
+.pformright{
+	width: 40%;
+}
+
+.formtable td.formright,
+.pformright{
+	border-right: 0px;
+	font-weight: normal;
+	width: auto;
+} 
+
+.formtable td.formtitle,
+.formsubtitle{
+	background: #E7E6E6;
+	border: 1px solid #9FB9D4; 
+	border-bottom: 0;
+	border-left: 0;
+	border-right: 0;
+	font-weight: normal;
+}
+
+.formsubtitle{ 
+	border: 0;
+	color: #666666;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.formtable td.formstrip{
+	background: #DDE8F2;
+	border: 1px solid #9FB9D4;
+	border-left: 0;
+	border-right: 0;
+	font-weight: normal;
+}
+
+/* 
+ * ========================================
+ * new style quote and code wrappers MATT's DESIGN 
+ * ========================================
+ */
+
+.quotetop{
+	background: #F7F7F7 url(style_images/cudazone/css_img_quote.gif) no-repeat right;
+	border: 1px dotted #000;
+	border-bottom: 0;
+	border-left: 4px solid #aeaeae;
+	color: #000;
+	font-weight: bold;
+	font-size: 10px;
+	margin: 2px auto 0 auto;
+	padding: 3px;
+}
+
+.quotemain{
+	background: #FAFCFE;
+	border: 1px dotted #000;
+	border-left: 4px solid #aeaeae;
+	border-top: 0;
+	color: #465584;
+	padding: 4px;
+	margin: 0 auto 0 auto;
+}
+
+.codetop,
+.sqltop,
+.htmltop{
+	background: #FDDBCC url(style_images/cudazone/css_img_code.gif) no-repeat right;
+	color: #000;
+	font-weight: bold;
+	margin: 0 auto 0 auto;
+	padding: 3px;
+}
+
+.codemain,
+.sqlmain,
+.htmlmain{
+	background: #FAFCFE;
+	border: 1px dotted #000;
+	color: #465584;
+	font-family: Courier, Courier New, Verdana, Arial;
+	margin: 0 auto 0 auto;
+	padding: 2px;
+}
+
+/* 
+ * ========================================
+ * old school quote and code styles - backwards compatibility 
+ * ========================================
+ */
+
+#QUOTE,
+#CODE{  
+	background: #FAFCFE; 
+	border: 1px solid #000; 
+	color: #465584; 
+	font-family: Verdana, Arial; 
+	font-size: 11px; 
+	padding: 2px; 
+	white-space: normal;
+}
+
+#CODE{ 
+	font-family: Courier, Courier New, Verdana, Arial;
+}
+
+/* 
+ * ========================================
+ * All New Styles 
+ * ========================================
+ */
+.cleared{
+	clear: both;
+}
+
+.borderwrap,
+.borderwrapm{ /* this will affect the outlining border of all the tables and boxes through-out the skin. */
+	background: #FFF;
+	border: 1px solid #b4b4b4;
+	padding: 0px; 
+	margin: 0px; 
+}
+
+.borderwrapm{
+	margin: 5px;
+}
+
+.borderwrap h3,
+.maintitle,
+.maintitlecollapse{
+	background: url(style_images/cudazone/tile_cat.jpg);
+	border: 1px solid #FFF;
+	border-bottom: 1px solid #525252;
+	color: #FFF; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0px;
+	padding: 8px;
+}
+
+.maintitle td {
+	color: #FFF; 
+	font-size: 12px;
+	font-weight: bold;
+}
+
+
+.maintitlecollapse{
+	border: 1px solid #FFF;
+}
+
+.maintitle p,
+.maintitlecollapse p,
+.formsubtitle p{
+	background: transparent !important;
+	border: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.maintitle p.expand,
+.maintitle p.goto,
+.maintitlecollapse p.expand,
+.formsubtitle p.members{
+	float: right;
+	width: auto !important;
+}
+
+.maintitle a:link, 
+.maintitle a:visited,
+.maintitlecollapse a:link, 
+.maintitlecollapse a:visited{ 
+	background: transparent;
+	color: #FFF;
+	text-decoration: none; 
+}
+
+.maintitle a:hover, 
+.maintitle a:active,
+.maintitlecollapse a:hover, 
+.maintitlecollapse a:active{ 
+	background: transparent;
+	color: #F1F1F1;
+}
+
+table th,
+.borderwrap table th,
+.subtitle,
+.subtitlediv,
+.postlinksbar{ 
+	background: transparent url(style_images/cudazone/tile_sub.jpg);
+	border-bottom: 1px solid #525252;
+	color: #666666; 
+	font-size: 10px;
+	font-weight: bold; 
+	letter-spacing: 1px;
+	margin: 0; 
+	padding: 5px; 
+}
+
+.subtitlediv{
+	border: 1px solid #FFF;
+	border-bottom: 1px solid #525252;
+	text-align: right;
+}
+
+.borderwrap table th a:link,
+.subtitle a:link,
+.subtitlediv a:link,
+.borderwrap table th a:visited,
+.subtitle a:visited, 
+.subtitlediv a:visited, 
+.borderwrap table th a:active,
+.subtitle a:active,
+.subtitlediv a:active,
+.borderwrap table th a:hover,
+.subtitle a:hover,
+.subtitlediv a:hover{ 
+	background: transparent;
+	color: #666666;
+	text-decoration: none; 
+}
+
+.borderwrap h4{
+	background: #DDE6F2;
+	border: 1px solid #FFF;
+	border-bottom: 1px solid #525252;
+	border-top: 1px solid #525252;
+	color: #525252; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0;
+	padding: 5px;
+}
+
+.borderwrap p{
+	background: #F9F9F9;
+	border: 1px solid #CCC;
+	margin: 5px;
+	padding: 10px;
+	text-align: left;
+}
+
+
+td.formbuttonrow,
+.pformstrip,
+.borderwrap p.formbuttonrow,
+.borderwrap p.formbuttonrow1{
+	background: #E7E6E6 !important; 
+	border: 1px solid #FFF;
+	border-top: 1px solid #525252;
+	margin: 0px !important;
+	padding: 5px !important;
+	text-align: center;
+}
+
+td.formbuttonrow{
+	border-bottom: 0;
+	border-left: 0;
+	border-right: 0;
+}
+
+.borderwrap p.formbuttonrow1{
+	background: #F9F9F9 !important;
+	border: 0;
+	border-top: 1px solid #CCC;
+}
+
+.bar,
+.barb,
+.barc{
+	background: #F7F7F7;
+	border: 1px solid #FFF;
+}
+
+.barc{
+	border-bottom: 0;
+}
+
+.bar p,
+.barb p,
+.barc p{
+	background: transparent;
+	border: 0;
+	color: #222;
+	font-size: 11px;
+	margin: 0;
+	padding: 5px;
+	text-align: left;
+}
+
+.barb p{
+	text-align: right;
+}
+
+.bar p.over,
+.bar p.overs,
+.barc p.over,
+.barc p.overs{
+	float: right;
+}
+
+.barb p.over,
+.barb p.overs{
+	float: left;
+}
+
+.bar p.overs,
+.barb p.overs,
+.barc p.overs{
+	position: relative;
+	top: 5px;
+}
+
+.catend{
+	background: #aeaeae;
+	color: #000;
+	font-size: 1px;
+	height: 5px;
+}
+
+.newslink{
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	margin: 0;
+	width: 100%;
+}
+
+.newslink td{
+	color: #222;
+	font-size: 10px;
+	padding: 5px 5px 5px 10px;
+}
+
+.newslink span{
+	background: transparent;
+	color: #505050;
+	font-style: italic;
+	font-weight: normal;
+}
+
+.newslink input{
+	background: #FFF;
+	border: 1px solid #999;
+	color: #505050;
+	font-size: 10px;
+	padding: 3px;
+	vertical-align: middle;
+	width: auto;
+}
+
+.newslink input.button{
+	background: transparent;
+	border: 0;
+	color: #b4b4b4;
+	vertical-align: middle;
+}
+
+.fieldwrap{
+	background: #F9F9F9;
+	border: 1px solid #CCC;
+	border-top: 0;
+	margin: 5px;
+	padding: 0;
+	text-align: left;
+}
+
+.fieldwrap h4{
+	background: #EEE;
+	border: 1px solid #CCC;
+	border-left: 0;
+	border-right: 0;
+	color: #444; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0;
+	padding: 5px;
+}
+
+.errorwrap {
+	background: #F2DDDD;
+	border: 1px solid #992A2A;
+	border-top: 0;
+	margin: 5px;
+	padding: 0;
+}
+
+
+.errorwrap h4 {
+	background: #E3C0C0;
+	border: 1px solid #992A2A;
+	border-left: 0;
+	border-right: 0;
+	color: #992A2A; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0;
+	padding: 5px;
+}
+
+.errorwrap p {
+	background: transparent;
+	border: 0;
+	color: #992A2A;
+	margin: 0;
+	padding: 8px;
+}
+
+
+.ruleswrap{
+	background: #F2DDDD;
+	border: 1px solid #992A2A;
+	color: #992A2A; 
+	margin: 5px 0 5px 0;
+	padding: 5px;
+}
+
+#redirectwrap{
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	margin: 200px auto 0 auto;
+	text-align: left;
+	width: 500px;
+}
+
+#redirectwrap h4{
+	background: #d5d6d7;
+	border-bottom: 1px solid #DBDBDB;
+	color: #666666;
+	font-size: 14px;
+	margin: 0;
+	padding: 5px;
+}
+
+#redirectwrap p{
+	margin: 0;
+	padding: 5px;
+}
+
+#redirectwrap p.redirectfoot{
+	background: #d7d9da;
+	border-top: 1px solid #DBDBDB;
+	text-align: center;
+}
+
+
+#gfooter{
+	background: #a5a5a5;
+	margin: 5px 0 5px 0;
+	padding: 0;
+	width: 100%;
+}
+
+#gfooter td{
+	color: #FFF;
+	font-size: 10px;
+	padding: 4px;
+}
+
+#gfooter a:link,
+#gfooter a:visited{
+	color: #FFF;
+}
+
+#logostrip{ 
+	background: #F2F2F2 url(style_images/cudazone/tile_back.jpg);
+	border: 1px solid #FFF;
+	height: 100px;
+	margin: 0;
+	padding: 0;
+}
+
+#logographic{
+	background: transparent url(style_images/cudazone/logo4.jpg) no-repeat left;
+	height: 100px;
+	margin: 0;
+	padding: 0;
+}
+
+#submenu{ 
+	background: transparent url(style_images/cudazone/top_tile_sub.gif);
+	border: 1px solid #FFF;
+	border-top: 0;
+	color: #666666; 
+	margin: 0;
+	height: 29px;
+	text-align: right;
+}
+
+.ipb-top-left-link,
+.ipb-top-right-link
+{
+	background: transparent url(style_images/cudazone/tile_sub-lite.gif);
+	float: right;
+	font-size: 10px;
+	font-weight: bold; 
+	letter-spacing: 0.5px;
+	margin: 0px;
+	padding: 7px 0 7px 0;
+	width: auto;
+	border-left:  1px solid #EFEFEF;
+}
+
+.ipb-top-left-link
+{
+	float: left;
+	border-left: 0px;
+	border-right: 1px solid #EFEFEF;
+}
+
+.ipb-top-left-link a:link, 
+.ipb-top-left-link a:visited,
+.ipb-top-right-link a:link, 
+.ipb-top-right-link a:visited
+{ 
+	background: transparent; 
+	color: #353535;
+	padding: 0 6px 0 6px;
+	text-decoration: none;
+}
+
+.ipb-top-left-link a:hover, 
+.ipb-top-left-link a:active,
+.ipb-top-right-link a:hover, 
+.ipb-top-right-link a:active
+{
+	background: transparent; 
+	color: #525252; 
+}
+
+#userlinks,
+#userlinksguest{ 
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	margin: 5px 0 5px 0;
+	padding: 0 5px 0 5px;
+}
+
+#userlinksguest{ 
+	background: #F4E7EA;
+	border: 1px solid #986265;
+}
+
+#userlinks p,
+#userlinksguest p{
+	background: transparent !important;
+	border: 0 !important;
+	font-size: 10px;
+	font-weight: bold; 
+	letter-spacing: 1px;
+	margin: 0 !important;
+	padding: 7px 0 7px 0; 
+	text-align: right;
+}
+
+#userlinks p,
+#userlinksguest p{
+	font-weight: normal;
+	letter-spacing: 0;
+}
+
+#userlinksguest p.pcen{
+	text-align: center;
+}
+
+#userlinks p.home,
+#userlinksguest p.home{
+	float: left;
+}
+
+#navstrip{ 
+	background: transparent;
+	color: #999;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 0 5px 0;
+	padding: 14px 0px 8px 0px; 
+}
+
+#navstrip a:link, 
+#navstrip  a:visited{ 
+	background: transparent; 
+	color: #222; 
+	text-decoration: none;
+}
+
+#navstrip a:hover, 
+#navstrip a:active{
+	background: transparent; 
+	color: #666666; 
+}
+
+.toplinks{
+	background: transparent;
+	color: #000;
+	margin: 0;
+	padding: 0 0 5px 0;
+	text-align: right;
+}
+
+.toplinks span{
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	border-bottom: 0;
+	color: #000;
+	font-size: 10px;
+	font-weight: bold;
+	margin: 0 10px 0 0;
+	padding: 5px;
+}
+
+.copyright{ 
+	background: #EEE;
+	font-size: 11px; 
+	margin: 0 0 5px 0;
+	padding: 8px;
+}
+
+/* 
+ * ========================================
+ * print page styles 
+ * ========================================
+ */
+
+#print{
+	margin: 20px auto 20px auto;
+	padding: 0;
+	text-align: left;
+	width: 85%;
+}
+
+#print h1,
+#print h2,
+#print h3,
+#print h4,
+#print p{
+	color: #036;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0;
+	padding: 8px;
+}
+
+#print h2,
+#print h3,
+#print p{
+	border-bottom: 1px solid #999;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+#print h3{
+	background: #F5F5F5;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+
+#print h4{
+	background: #F9F9F9;
+	font-size: 11px;
+}
+
+#print p{
+	margin: 0 0 5px 0;
+	padding: 10px;
+}
+
+#print p.printcopy{
+	border: 0;
+	color: #000;
+	text-align: center;
+}
+
+.dny-edit-title
+{
+	border:0px;
+	padding:3px;
+	margin:0px;
+	background: #E7E6E6; 
+	color: #666666; 
+}
+
+
+/* ======================================== */
+/* TABS
+/* ======================================== */
+
+.tabon
+{
+	border-top:1px solid #999;
+	border-left:1px solid #999;
+	border-right:1px solid #999;
+	background-color:#FFF;
+	padding:8px;
+	padding-bottom:9px;
+	font-size:10px;
+	float:left;
+	width:auto;
+	margin-top:3px;
+}
+
+.taboff
+{
+	border-top: 1px solid #777;
+	border-left: 1px solid #777;
+	border-right: 1px solid #777;
+	background-color: #B5C3D9;
+	color: #333;
+	padding: 8px;
+	font-size:10px;
+	float: left;
+	width: auto;
+	margin-top:3px;
+}
+
+.tabon a:link, 
+.tabon a:visited, 
+.tabon a:active
+{
+	text-decoration:none;
+	color: #000;
+}
+
+.taboff a:link, 
+.taboff a:visited, 
+.taboff a:active
+{
+	text-decoration:none;
+	color: #333;
+}
+
+.mya-back
+{
+	background: #b4b4b4;
+	margin:1px;
+	padding: 1px;
+}
+
+.mya-content
+{
+	background: #FFF;
+	padding:8px;
+	margin: 1px;
+	border: 1px solid #777;
+}
+
+.mya-content-tbl
+{
+   background: #FBFBFB;
+   border: 1px solid #777;
+   text-align:left;
+   font-size:10px;
+   white-space:nowrap;
+   margin:1px;
+}
+
+.mya-fieldwrap
+{
+	background: transparent;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	padding: 4px;
+	border: 1px solid #C5C7CD;
+	-moz-border-radius: 5px;
+	width: auto;
+	display: block;
+}
+
+/* -------------------------------- */
+/* Create PM box defaults           */
+/* -------------------------------- */
+
+.iframeshim
+{
+	position:absolute;
+	display:none;
+	background: #FFF;
+	filter:alpha(opacity=0);
+	border:0px;
+	width:auto;
+	height:auto;
+}
+
+
+
+/* -------------------------------- */
+/* Experimental                     */
+/* -------------------------------- */
+
+.popupmenu,
+.popupmenu-new
+{
+   background: #FBFBFB;
+   border: 1px solid #666666;
+   text-align:left;
+   font-size:10px;
+   white-space:nowrap;
+   /*padding:3px 5px 3px 3px;*/
+   /*width:300px;*/
+}
+
+.popupmenu-item
+{
+	padding: 5px;
+	/*margin-top:4px;*/
+	white-space: nowrap;
+	border-bottom: 1px solid #DBDBDB;
+	color:  #000000;
+	font-weight: normal;
+}
+
+.popupmenu-item-last
+{
+	padding: 5px;
+	/*margin-top:4px;*/
+	white-space: nowrap;
+	color:  #000000;
+	font-weight: normal;
+}
+
+.popmenubutton-new,
+.popmenubutton
+{
+	width:120px;
+	white-space:nowrap;
+	background-color: #DBDBDB;
+	border:1px solid #666666;
+	color: #666666;
+	font-weight:bold;
+	float:right;
+	height:18px;
+	text-align:center;
+	margin:0px;
+	font-size:11px;
+	padding:3px;
+}
+
+.popmenubutton-new
+{
+	float:none;
+	width:auto;
+	text-align:left;
+	height:auto;
+	padding:3px;
+	font-weight:normal;
+	background-color:#F6F8F6;
+	background-image: url(style_images/cudazone/menu_action_down-padded.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+.popmenubutton-new-out
+{
+	padding:4px;
+}
+
+.popupmenu-new
+{
+	background-color: #F7F7F7;
+}
+
+
+.popmenubutton a:link, 
+.popmenubutton a:visited,
+.popmenubutton-new a:link, 
+.popmenubutton-new a:visited,
+.popupmenu-item a:link, 
+.popupmenu-item a:visited,
+.popupmenu-item-last a:link, 
+.popupmenu-item-last a:visited
+{ 
+	color: #666666; 
+	text-decoration: none;
+}
+
+.popmenubutton a:hover,
+.popmenubutton-new a:hover,
+.popupmenu-item a:hover, 
+.popupmenu-item-last a:hover
+{ 
+	color: #525252; 
+	text-decoration: none;
+}
+
+.popupmenu-category
+{ 
+	background: transparent url(style_images/cudazone/tile_sub.jpg);
+	border-top: 1px solid #525252;
+	border-bottom: 1px solid #525252;
+	color: #666666; 
+	font-size: 10px;
+	font-weight: bold; 
+	letter-spacing: 1px;
+	margin: 0; 
+	padding: 5px; 
+}
+
+/* -------------------------------- */
+/* Loading box
+/* -------------------------------- */
+
+#loading-layer-inner
+{
+	width:220px;
+	height:28px;
+	padding:18px 10px 10px 10px;
+	text-align:center;
+	color: #000;
+	border: 1px solid;
+	border-color:#CCC #666 #666 #CCC;
+	background-color: #FCF8C7;
+}
+
+/* -------------------------------- */
+/* Message in a bo(x|ttle)
+/* -------------------------------- */
+
+#ipd-msg-wrapper
+{
+	display: none;
+	width: 220px;
+}
+
+#ipd-msg-inner
+{
+	width:100%;
+	height:45px;
+	padding: 6px 4px 4px 4px;
+	margin: 0px;
+	text-align:center;
+	color: #000;
+	border: 1px solid;
+	border-color:#ccc #666 #666 #ccc;
+	background-color: #FCF8C7;
+	filter:alpha(opacity=75);
+	opacity:.75
+}
+
+#ipd-msg-title
+{
+	width: 100%;
+	height:20px;
+	margin: 0px;
+	padding: 6px 4px 4px 4px;
+	background: transparent url(style_images/cudazone/css_pp_header.gif);
+	border: 1px solid #666666;
+	border-bottom: 0px;
+	color: #FFF;
+}
+
+.linked-image
+{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+.resized-linked-image
+{
+	margin: 1px 0px 0px 0px;
+	padding: 0px;
+	background-color: #000;
+	border: 0px;
+	color: #FFF;
+	font-size: 10px;
+	width: auto;
+	-moz-border-radius-topleft: 7px;
+	-moz-border-radius-topright: 7px;
+}
+
+.resized-linked-image-zoom
+{
+	width: 200px;
+	height: 30px;
+	filter:alpha(opacity=85);
+	opacity:.85;
+	background-color: #FFF;
+	padding-top: 6px;
+	padding-left: 5px;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	display: none;
+}
+
+/* -------------------------------- */
+/* Edit post reason
+/* -------------------------------- */
+
+.post-edit-reason
+{
+	background: #EFEFEF;
+	margin-top: 9px;
+	margin-bottom: 0px;
+	padding: 4px;
+	color: #333;
+	font-size: 10px;
+	border: 1px solid #C5C7CD;
+	-moz-border-radius: 5px;
+	width: auto;
+	display: block;
+}
+
+/* -------------------------------- */
+/* Personal Profile
+/* -------------------------------- */
+
+.pp-name
+{ 
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	margin: 0px;
+	padding: 10px;
+}
+
+.pp-name h3
+{
+	margin:0px;
+	padding:0px 0px 5px 0px;
+	font-size:24px;
+}
+
+.pp-header
+{ 
+	background: transparent url(style_images/cudazone/tile_sub.jpg);
+	color: #666666; 
+	font-size: 10px;
+	font-weight: bold; 
+	margin: 0px 0px 1px 0px; 
+	padding: 5px; 
+}
+
+.pp-title
+{
+	background: url(style_images/cudazone/css_pp_header.gif);
+	border-bottom: 1px solid #525252;
+	color: #FFF; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0px;
+	padding: 8px;
+}
+
+.pp-datebox
+{
+	text-align: center;
+	background: #FFFFFF;
+	border: 1px solid #555555;
+	padding: 4px;
+	margin: 0px;
+	font-size:18px;
+	font-weight:bold;
+	line-height: 100%;
+	letter-spacing: -1px;
+	float:right;
+	width: auto;
+}
+
+.pp-datebox em
+{
+	color: #AAA;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.pp-contentbox-back
+{
+	background-image: url(style_images/cudazone/folder_profile_portal/pp-css-contentblock.gif);
+	background-repeat: repeat-x;
+	background-color: #C2C2C2;
+	padding: 6px;
+}
+
+.pp-contentbox-entry,
+.pp-contentbox-entry-noheight,
+.pp-contentbox-entry-noheight-mod,
+.pp-contentbox-entry-noheight-sel
+{
+	background-color: #F6F8F6;
+	border: 1px solid #888888;
+	line-height: 140%;
+	padding: 8px;
+	margin-bottom: 6px;
+	height: 200px;
+	overflow: auto;
+	overflow-x: auto;
+}
+
+.pp-contentbox-entry-noheight-sel
+{
+	background-color:#FCECCD;
+}
+
+.pp-contentbox-entry-noheight-mod
+{
+	background-color:#FDF1DA;
+}
+
+.pp-contentbox-entry-noheight,
+.pp-contentbox-entry-noheight-mod,
+.pp-contentbox-entry-noheight-sel
+{
+	height: auto;
+	margin-bottom: 1px;
+}
+
+.pp-image-thumb-wrap,
+.pp-image-thumb-wrap-floatright,
+.pp-image-mini-wrap,
+.pp-image-mini-wrap-floatright
+{
+	width: 52px;
+	height: 52px;
+	text-align: center;
+	background: #FFFFFF;
+	border: 1px solid #555555;
+	padding: 4px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.pp-image-mini-wrap,
+.pp-image-mini-wrap-floatright
+{
+	width: 27px;
+	height: 27px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.pp-image-thumb-wrap-floatright,
+.pp-image-mini-wrap-floatright
+{
+	float:right;
+}
+
+.pp-tiny-text
+{
+	color: gray;
+	font-size: 10px;
+}
+
+.pp-mini-content-entry,
+.pp-mini-content-entry-noheight,
+.pp-mini-entry-noheight-shaded
+{
+	background-color: #F7F7F7;
+	padding: 6px;
+	border-bottom: 1px dotted #555555;
+	clear:both;
+	width: auto;
+	height: 60px;
+}
+
+.pp-mini-entry-noheight-shaded
+{
+	background-color: #F2F1F3;
+}
+
+.pp-mini-content-entry-noheight,
+.pp-mini-entry-noheight-shaded
+{
+	height: auto;
+}
+
+.pp-tabclear,
+.pp-maintitle
+{
+	background: url(style_images/cudazone/css_pp_header.gif);
+	border: 1px solid #FFF;
+	border-bottom: 1px solid #525252;
+	color: #FFF; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0px;
+	padding: 8px;
+}
+
+.pp-tabclear
+{
+	border:0px;
+	border-right: 1px solid #a2a2a2;
+	border-left: 1px solid #a2a2a2;
+}
+
+.pp-tabon
+{
+	border-top:1px solid #6A6A6A;
+	border-left:1px solid #a2a2a2;
+	border-right:1px solid #a2a2a2;
+	background-color:#9E9E9E;
+	color:#FFFFFF;
+	padding:8px;
+	float:left;
+	width:auto;
+	background-image: url(style_images/cudazone/css_pp_tab_on.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	margin-top:3px;
+	font-size:10px;
+}
+
+.pp-taboff,
+.pp-tabshaded
+{
+	border-top: 1px solid #9E9E9E;
+	border-left: 1px solid #9E9E9E;
+	border-right: 1px solid #9E9E9E;
+	background-color: #6A6A6A;
+	color: #6A6A6A;
+	padding:8px;
+	float: left;
+	width: auto;
+	background-image: url(style_images/cudazone/css_pp_tab_off.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	margin-top:3px;
+	font-size:10px;
+}
+
+.pp-tabshaded
+{
+	background-image: url(style_images/cudazone/css_pp_tab_shaded.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	color: #516795;
+	border-top: 1px solid #AAAAAA;
+	border-left: 1px solid #AAAAAA;
+	border-right: 1px solid #AAAAAA;
+}
+
+.pp-tabon a:link, 
+.pp-tabon a:visited, 
+.pp-tabon a:active
+{
+	text-decoration:none;
+	color: #FFFFFF;
+}
+
+.pp-taboff a:link, 
+.pp-taboff a:visited, 
+.pp-taboff a:active,
+.pp-tabshaded a:link, 
+.pp-tabshaded a:visited, 
+.pp-tabshaded a:active
+{
+	text-decoration:none;
+	color: #6A6A6A;
+}
+
+.pp-tabwrap
+{
+	height: 34px;
+	margin:0px;
+	padding:0px;
+}
+</style> 
+<style type="text/css">
+@import url( "http://forums.nvidia.com/style_images/cudazone/folder_editor_images/css_rte.css" );
+</style> 
+</head><body>
+<div id="ipbwrapper">
+<!-- -->
+<script type="text/javascript">
+ //<![CDATA[
+ var ipb_var_st            = "0";
+ var ipb_lang_tpl_q1       = "Please enter a page number to jump to between 1 and";
+ var ipb_var_s             = "";
+ var ipb_var_phpext        = "php";
+ var ipb_var_base_url      = "http://forums.nvidia.com/index.php?s=&";
+ var ipb_var_image_url     = "style_images/cudazone";
+ var ipb_input_f           = "71";
+ var ipb_input_t           = "85703";
+ var ipb_input_p           = "0";
+ var ipb_var_cookieid      = "";
+ var ipb_var_cookie_domain = "";
+ var ipb_var_cookie_path   = "/";
+ var ipb_md5_check         = "414ca48a4f7712003aaf8db7ea07a149";
+ var ipb_new_msgs          = 0;
+ var use_enhanced_js       = 1;
+ var use_charset           = "UTF-8";
+ var ipb_myass_chars_lang  = "Not enough characters";
+ var ajax_load_msg		   = "Loading Content...";
+ //]]>
+</script>
+<script type="text/javascript" src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/ips_ipsclass.js"></script>
+<script type="text/javascript" src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/ipb_global.js"></script>
+<script type="text/javascript" src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/ips_menu.js"></script>
+<script type="text/javascript" src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/ips_menu_html.js"></script>
+<script type="text/javascript" src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/lang_javascript.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var ipsclass = new ipsclass();
+ipsclass.init();
+ipsclass.settings['do_linked_resize'] = parseInt( "1" );
+ipsclass.settings['resize_percent']   = parseInt( "50" );
+//]]>
+</script>
+<!-- -->
+<div class="borderwrap">
+	<div id="logostrip"><a href="http://forums.nvidia.com/index.php?"><!-- --><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/logo4.jpg" alt="IPB" style="vertical-align: top;" border="0"><!-- --></a></div>
+	<div id="submenu">
+		<!-- -->
+		
+			<div class="ipb-top-left-link"><a href="http://www.nvidia.com/">NVIDIA.COM</a></div>
+		
+				
+		
+	<div class="ipb-top-left-link"><a href="http://forums.nvidia.com/index.php?act=boardrules">Board Guidelines &amp; Signature Rules</a></div>
+
+		<!-- -->
+		<!-- -->
+		<div class="ipb-top-right-link"><a href="http://forums.nvidia.com/index.php?act=Help">Help</a></div>
+		<div style="cursor: pointer;" class="ipb-top-right-link" id="ipb-tl-search"><a href="http://forums.nvidia.com/index.php?act=Search&amp;f=71">Search</a></div>
+		<div class="ipb-top-right-link"><a href="http://forums.nvidia.com/index.php?act=Members">Members</a></div>
+		<div class="ipb-top-right-link"><a href="http://forums.nvidia.com/index.php?act=calendar">Calendar</a></div>
+		
+		<div class="popupmenu-new" id="ipb-tl-search_menu" style="display: none; width: 210px; position: absolute; left: 0px; top: 0px;">
+			<form action="http://forums.nvidia.com/index.php?act=Search&amp;CODE=01" method="post">
+				<input name="forums" id="gbl-search-forums" value="71" type="hidden"> 
+				<input size="20" name="keywords" id="ipb-tl-search-box" type="text">
+				<input class="button" style="border: 0px none ;" src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/login-button.gif" type="image">
+				
+					<br><input id="gbl-search-checkbox" value="1" onclick="gbl_check_search_box()" checked="checked" type="checkbox"> Search this forum only?
+				
+			</form>
+			<div style="padding: 4px;">
+				<a href="http://forums.nvidia.com/index.php?act=Search">More Search Options</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			ipsmenu.register( "ipb-tl-search", 'document.getElementById("ipb-tl-search-box").focus();' );
+			gbl_check_search_box();
+		</script>
+		<!-- -->
+	</div>
+</div>
+
+<script type="text/javascript" src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/ips_xmlhttprequest.js"></script>
+<script type="text/javascript" src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/ipb_global_xmlenhanced.js"></script>
+<script type="text/javascript" src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/dom-drag.js"></script>
+<div id="get-myassistant" style="display: none; width: 400px; text-align: left;">
+<div class="borderwrap">
+ <div class="maintitle" id="myass-drag" title="Click and hold to drag this window">
+  <div style="float: right;"><a href="#" onclick='document.getElementById("get-myassistant").style.display="none"'>[X]</a></div>
+  <div>My Assistant</div>
+ </div>
+ <div id="myass-content" style="overflow-x: auto;"></div>
+ </div>
+</div>
+<!-- -->
+<div id="loading-layer" style="display: none;">
+	<div id="loading-layer-shadow">
+	   <div id="loading-layer-inner">
+	 	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/loading_anim.gif" alt="Loading. Please Wait..." border="0">
+		<span style="font-weight: bold;" id="loading-layer-text">Loading. Please Wait...</span>
+	    </div>
+	</div>
+</div>
+<!-- -->
+<!-- -->
+<div id="ipd-msg-wrapper">
+	<div id="ipd-msg-title">
+		<a href="#" onclick='document.getElementById("ipd-msg-wrapper").style.display="none"; return false;'><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/close.png" alt="X" title="Close Window" class="ipd"></a> &nbsp; <strong>Site Message</strong>
+	</div>
+	<div id="ipd-msg-inner"><span style="font-weight: bold;" id="ipd-msg-text"></span><div class="pp-tiny-text">(Message will auto close in 2 seconds)</div></div>
+</div>
+<!-- -->
+
+<!-- -->
+
+<div id="userlinks">
+	<p class="home"><b>Logged in as:  <a href="http://forums.nvidia.com/index.php?showuser=83763">kristleifur</a></b> ( <a href="http://forums.nvidia.com/index.php?act=Login&amp;CODE=03&amp;k=414ca48a4f7712003aaf8db7ea07a149">Log Out</a> )</p>
+	<p>
+
+
+
+
+
+
+	<b><a href="http://forums.nvidia.com/index.php?act=UserCP&amp;CODE=00" title="Edit my settings, such as signature, avatar and more...">My Controls</a></b> ·&nbsp;<a href="http://forums.nvidia.com/index.php?act=Search&amp;CODE=getnew">View New Posts</a>
+	
+		·&nbsp;<a href="javascript:buddy_pop();" title="View posts since your last visit, moderator lists and more...">My Assistant</a>
+	
+	·&nbsp;<a href="javascript:friends_pop();">My Friends</a>	
+
+
+	·&nbsp;<a href="http://forums.nvidia.com/index.php?act=Msg&amp;CODE=01">0 New Messages</a>
+
+	</p>
+</div>
+<div id="navstrip"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/nav.gif" alt="&gt;" border="0">&nbsp;<a href="http://forums.nvidia.com/index.php?act=idx">NVIDIA Forums</a>&nbsp;&gt;&nbsp;<a href="http://forums.nvidia.com/index.php?showforum=62">CUDA GPU Computing</a>&nbsp;&gt;&nbsp;<a href="http://forums.nvidia.com/index.php?showforum=71">CUDA Programming and Development</a></div>
+<!-- -->
+<script type="text/javascript">
+<!--
+var ipb_lang_tt_prompt = "Manually copy the direct link to this post below to store the link in your computer's clipboard";
+var ipb_lang_js_del_1  = "Are you sure you want to delete this message?";
+var ipb_lang_js_del_2  = "Ok, no action has been taken";
+var addquotebutton     = "style_images/cudazone/p_mq_add.gif";
+var removequotebutton  = "style_images/cudazone/p_mq_remove.gif";
+var unselectedbutton = "style_images/cudazone/topic_unselected.gif";
+var selectedbutton   = "style_images/cudazone/topic_selected.gif";
+var lang_gobutton    = "With Selected";
+var lang_suredelete  = "Are you sure you wish to delete these posts?";
+var js_error_no_permission = "Sorry, you do not have permission to edit that post";
+var js_no_empty_post = "You cannot submit an empty post";
+//-->
+</script>
+<script type="text/javascript" src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/ipb_topic.js"></script>
+<script type="text/javascript" src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/ips_text_editor_lite.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+topic_rate = new topic_rate();
+//]]>
+</script>
+<a name="top"></a>
+
+
+<table class="ipbtable" cellspacing="0">
+	<tbody><tr>
+		<td style="padding-left: 0px;" nowrap="nowrap" valign="middle" width="40%"><div>&nbsp;</div></td>
+		<td class="nopad" style="padding: 0px 0px 5px;" align="right" valign="middle" width="60%"><a href="http://forums.nvidia.com/index.php?act=post&amp;do=reply_post&amp;f=71&amp;t=85703"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/t_reply.gif" alt="Reply to this topic" border="0"></a><a href="http://forums.nvidia.com/index.php?act=post&amp;do=new_post&amp;f=71" title="Start a new topic"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/t_new.gif" alt="Start new topic" border="0"></a></td>
+	</tr>
+</tbody></table>
+
+<div class="borderwrap">
+	<div class="maintitle" style="padding: 4px;">
+	<!-- -->
+	<table style="padding: 0px;" cellpadding="0" cellspacing="0" width="100%">
+	<tbody><tr>
+	 <td style="" width="99%"><div><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/nav_m.gif" alt="&gt;" border="0" height="8" width="8">&nbsp;<b>FindCuda.cmake Macro Problem?</b></div></td>
+	 
+	 <td align="right" nowrap="nowrap" width="1%">
+		
+		
+			
+		
+		
+     </td>
+	 <td align="right" nowrap="nowrap" width="1%">
+	    <div style="cursor: pointer;" class="popmenubutton" id="topicmenu-options"><a href="#topicoptions">Options</a> <img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/menu_action_down.gif" alt="V" title="Open Menu" border="0"></div>
+	 
+<div class="popupmenu" id="topicmenu-options_menu" style="display: none; z-index: 100; position: absolute; left: 0px; top: 0px;">
+<div class="popupmenu-item">
+<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/menu_item.gif" alt="V" style="vertical-align: middle;" border="0"> <a href="http://forums.nvidia.com/index.php?act=usercp&amp;CODE=start_subs&amp;method=topic&amp;tid=85703">Track this topic</a>
+</div>
+<div class="popupmenu-item">
+<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/menu_item.gif" alt="V" style="vertical-align: middle;" border="0"> <a href="http://forums.nvidia.com/index.php?act=Forward&amp;f=71&amp;t=85703">Email this topic</a>
+</div>
+<div class="popupmenu-item">
+<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/menu_item.gif" alt="V" style="vertical-align: middle;" border="0"> <a href="http://forums.nvidia.com/index.php?act=Print&amp;client=printer&amp;f=71&amp;t=85703">Print this topic</a>
+</div>
+<div class="popupmenu-item">
+<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/menu_item.gif" alt="V" style="vertical-align: middle;" border="0"> <a href="http://forums.nvidia.com/index.php?act=Print&amp;client=choose&amp;f=71&amp;t=85703">Download this topic</a>
+</div>
+<div class="popupmenu-item">
+<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/menu_item.gif" alt="V" style="vertical-align: middle;" border="0"> <a href="http://forums.nvidia.com/index.php?act=usercp&amp;CODE=start_subs&amp;method=forum&amp;fid=71">Subscribe to this forum</a>
+</div>
+<div class="popupmenu-category" align="center">Display Modes</div><div class="popupmenu-item">
+<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/menu_item.gif" alt="V" style="vertical-align: middle;" border="0"> <a href="http://forums.nvidia.com/index.php?showtopic=85703&amp;mode=threaded">Switch to: Outline</a>
+</div>
+<div class="popupmenu-item">
+<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/menu_item.gif" alt="V" style="vertical-align: middle;" border="0"> <strong><em><a href="http://forums.nvidia.com/index.php?showtopic=85703&amp;mode=linear">Standard</a></em></strong>
+</div>
+<div class="popupmenu-item-last">
+<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/menu_item.gif" alt="V" style="vertical-align: middle;" border="0"> <a href="http://forums.nvidia.com/index.php?showtopic=85703&amp;mode=linearplus">Switch to: Linear+</a>
+</div>
+
+</div>
+</td>
+	</tr>
+  </tbody></table>
+	 
+ </div>
+ <!-- -->
+<script type="text/javascript">
+<!--
+menu_build_menu(
+"topicmenu-options",
+new Array(   img_item + " <a href='http://forums.nvidia.com/index.php?act=usercp&amp;CODE=start_subs&amp;method=topic&amp;tid=85703'>Track this topic</a>",
+ 			 img_item + " <a href='http://forums.nvidia.com/index.php?act=Forward&amp;f=71&amp;t=85703'>Email this topic</a>",
+ 			 img_item + " <a href='http://forums.nvidia.com/index.php?act=Print&amp;client=printer&amp;f=71&amp;t=85703'>Print this topic</a>",
+             img_item + " <a href='http://forums.nvidia.com/index.php?act=Print&amp;client=choose&amp;f=71&amp;t=85703'>Download this topic</a>",
+ 			 img_item + " <a href='http://forums.nvidia.com/index.php?act=usercp&amp;CODE=start_subs&amp;method=forum&amp;fid=71'>Subscribe to this forum</a>",
+ 			 "~~NODIV~~<div class='popupmenu-category' align='center'>Display Modes</div>",
+ 			 img_item + " <a href='http://forums.nvidia.com/index.php?showtopic=85703&amp;mode=threaded'>Switch to: Outline</a>",
+ 			 img_item + " <strong><em><a href='http://forums.nvidia.com/index.php?showtopic=85703&amp;mode=linear'>Standard</a></em></strong>",
+ 			 img_item + " <a href='http://forums.nvidia.com/index.php?showtopic=85703&amp;mode=linearplus'>Switch to: Linear+</a>"
+	    ) );
+topic_rate.settings['allow_rating']       = parseInt("0");
+topic_rate.settings['default_rating']     = parseInt("0");
+topic_rate.settings['img_base_url']       = ipb_var_image_url + '/folder_topic_view';
+topic_rate.settings['div_rating_wrapper'] = 'topic-rating-wrapper';
+topic_rate.settings['text_rating_image']  = 'topic-rating-img-';
+topic_rate.languages['img_alt_rate']      = "Rate this topic, click on desired star to send rating";
+topic_rate.languages['rate_me']           = "Rate Topic:";
+topic_rate.init_rating_images();
+-->
+</script><!-- -->
+<table class="ipbtable" cellspacing="1">
+	<tbody><tr>
+		<td class="row2" valign="middle" width="1%">
+			<a name="entry485899"></a>
+			
+				<div style="cursor: pointer;" id="post-member-485899" class="popmenubutton-new-out">
+					<span class="normalname">
+	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/user-offline.png" alt="" border="0"><a href="http://forums.nvidia.com/index.php?showuser=117864">phillicl</a></span>
+				</div>
+				<!-- -->
+				<div class="popupmenu-new" id="post-member-485899_menu" style="display: none; width: 230px; position: absolute; left: 0px; top: 0px;">
+					<div class="popupmenu-item-last">
+						
+						<div style="float: right;">
+							<div class="pp-image-thumb-wrap">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pp-blank-thumb.png" alt="" height="50" width="50">
+							</div>
+							
+								<div style="margin-top: 5px; margin-left: 6px;">
+									<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rating_0_mini.gif" alt="Rating: 0" style="vertical-align: middle;" border="0">
+								</div>
+							
+						</div>
+						<div class="popupmenu-item">
+							
+	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/gender_mystery.png" id="pp-entry-gender-img-117864" alt="" border="0">
+ <a href="http://forums.nvidia.com/index.php?showuser=117864">View Member Profile</a>
+						</div>
+						
+						
+						
+							<div class="popupmenu-item">
+								
+									<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/friend_add_small.png" alt="" border="0"> <a href="#" onclick='friends_pop("&amp;do=add&amp;member_id=117864&amp;md5check=414ca48a4f7712003aaf8db7ea07a149"); return false'>Add as Friend</a>
+								
+							</div>
+							<div class="popupmenu-item">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/send_pm_small.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Msg&amp;CODE=4&amp;MID=117864">Send Message</a>
+							</div>
+							<div class="popupmenu-item">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/find_posts.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Search&amp;CODE=gettopicsuser&amp;mid=117864">Find Member's Topics</a>
+							</div>
+							<div class="popupmenu-item-last">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/find_posts.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Search&amp;CODE=getalluser&amp;mid=117864">Find Member's Posts</a>
+							</div>
+						
+					</div>
+				</div>
+				<!-- -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-485899", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/to_post_off.gif" alt="post" style="padding-bottom: 2px;" border="0"> Jan 4 2009, 04:42 AM</span>
+			</div>
+			<!-- -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=85703&amp;view=findpost&amp;p=485899" onclick="link_to_post(485899); return false;">#1</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="post2" valign="top">
+        	<span class="postdetails">
+				
+					<a href="http://forums.nvidia.com/index.php?showuser=117864" title="View Member Profile"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/Whale.jpg" alt="" border="0"></a><br><br>
+				
+        		<br>
+        		<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><br><br>
+        		Group: Members<br>
+        		Posts: 5<br>
+        		Joined: 3-September 08<br>
+        		
+        		Member No.: 117,864<br>
+				
+				<br>
+        		 
+        	</span><br>
+        	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/spacer.gif" alt="" height="1" width="160"><br> 
+       </td>
+       <td class="post2" id="post-main-485899" valign="top" width="100%">
+			<!-- -->
+			<div class="postcolor" id="post-485899">
+				Hi all,<br><br>I
+am simultaneously learning CMake and how successfully compile a cuda
+project. As an exercise, I decided to take the cppIntegration project
+from the SDK, and figure out how to get it to compile with CMake, using
+the FindCuda.cmake utility downloaded from <a href="http://www.sci.utah.edu/%7Eabe/FindCuda.html" target="_blank">http://www.sci.utah.edu/~abe/FindCuda.html</a>.
+I successfully got the example available in the download to work. Using
+that example as a template, I attempted to extract the relevant parts
+of the CMakeList.txt files and apply the same structure to the
+cppIntegration project. No Luck! I cannot get the cppIntegration
+project to successfully compile. <br><br>My directory structure is <br>"bin"  (for the out-of-source build)<br>"CMake" (the provided code)<br>"src"  (This contains the two *.cu files, the two *.cpp files of cppIntegration, and a CMakeLists.txt file)<br>CmakeLists.txt<br><br>The top directory CMakeLists.txt file looks like<br><br><div class="codetop">CODE</div><div class="codemain" style="overflow: auto; height: 200px; white-space: pre;"># The name of our project is "CPPINTEGRATION". CMakeLists files in this project can <br># refer to the root source directory of the project as ${CPPINTEGRATION_SOURCE_DIR} and <br># to the root binary directory of the project as ${CPPINTEGRATION_BINARY_DIR}. <br><br>cmake_minimum_required (VERSION 2.6) <br>project (CPPINTEGRATION) <br><br>INCLUDE(${CMAKE_SOURCE_DIR}/CMake/cuda/FindCuda.cmake)<br><br>SUBDIRS(<br>  src<br>  )<br><br></div><br><br>The CMakeList.txt in the "src" looks like<br><div class="codetop">CODE</div><div class="codemain" style="overflow: auto; height: 200px; white-space: pre;"># Add current directory to the nvcc include line.<br>CUDA_INCLUDE_DIRECTORIES(<br>  ${CMAKE_CURRENT_SOURCE_DIR}<br>)<br><br>INCLUDE_DIRECTORIES( ${FOUND_CUDA_NVCC_INCLUDE} ${FOUND_CUT_INCLUDE})<br><br>##################################################<br><br># Use the CUDA_COMPILE macro.<br>CUDA_COMPILE(CUDA_FILES cppIntegration_kernel.cu cppIntegration.cu)<br><br>ADD_EXECUTABLE(cuda_compile_example <br>  ${CUDA_FILES} <br>  main.cpp<br>  cppIntegration_gold.cpp<br>  )<br><br></div><br><br>cmake appears to find all the right files, includes, libraries (with a little help)<br><br>But the verbose make generates the following error<br><br>/sw/bin/cmake
+-H/Users/phillicl/miniMD/IncrementalCUDATest
+-B/Users/phillicl/miniMD/IncrementalCUDATest/bin --check-build-system
+CMakeFiles/Makefile.cmake 0<br>/sw/bin/cmake -E cmake_progress_start
+/Users/phillicl/miniMD/IncrementalCUDATest/bin/CMakeFiles
+/Users/phillicl/miniMD/IncrementalCUDATest/bin/CMakeFiles/progress.make<br>make -f CMakeFiles/Makefile2 all<br>make -f src/CMakeFiles/cuda_compile_example.dir/build.make src/CMakeFiles/cuda_compile_example.dir/depend<br>cd
+/Users/phillicl/miniMD/IncrementalCUDATest/bin &amp;&amp; /sw/bin/cmake
+-E cmake_depends "Unix Makefiles"
+/Users/phillicl/miniMD/IncrementalCUDATest
+/Users/phillicl/miniMD/IncrementalCUDATest/src
+/Users/phillicl/miniMD/IncrementalCUDATest/bin
+/Users/phillicl/miniMD/IncrementalCUDATest/bin/src
+/Users/phillicl/miniMD/IncrementalCUDATest/bin/src/CMakeFiles/cuda_compile_example.dir/DependInfo.cmake
+--color=<br>make -f src/CMakeFiles/cuda_compile_example.dir/build.make src/CMakeFiles/cuda_compile_example.dir/build<br>Linking CXX executable cuda_compile_example<br>cd
+/Users/phillicl/miniMD/IncrementalCUDATest/bin/src &amp;&amp;
+/sw/bin/cmake -E cmake_link_script
+CMakeFiles/cuda_compile_example.dir/link.txt --verbose=1<br>/usr/bin/c++
+-O3 -DNDEBUG -Wl,-search_paths_first -headerpad_max_install_names -fPIC
+CMakeFiles/cuda_compile_example.dir/main.o
+CMakeFiles/cuda_compile_example.dir/cppIntegration_gold.o -o
+cuda_compile_example /usr/local/cuda/lib/libcuda.dylib
+/usr/local/cuda/lib/libcudart.dylib <br>Undefined symbols:<br>  "_runTest", referenced from:<br>      _main in main.o<br>  "_cutCheckCmdLineFlag", referenced from:<br>      _main in main.o<br>ld: symbol(s) not found<br>collect2: ld returned 1 exit status<br>make[2]: *** [src/cuda_compile_example] Error 1<br>make[1]: *** [src/CMakeFiles/cuda_compile_example.dir/all] Error 2<br>make: *** [all] Error 2<br><br><br>As
+you can see, it does not appear to actually compile the *.cu files and
+thus has no object files! Its as if the macro is not working somehow.
+(I get an identical output if I "comment" out the "CUDA_COMPILE")<br><br>What am I missing?  <br><br><br><br><br>
+				
+				
+				<!-- -->
+			</div>
+			
+			
+			<!-- -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style="text-align: left;"><a href="javascript:scroll(0,0);"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_up.gif" alt="Go to the top of the page" border="0"></a><a href="http://forums.nvidia.com/index.php?act=report&amp;t=85703&amp;p=485899&amp;st=0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_report.gif" alt="Report Post" border="0"></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(485899); return false;" title="Toggle multiquote addition"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_mq_add.gif" name="mad_485899" alt="+"></a><a href="http://forums.nvidia.com/index.php?act=Post&amp;CODE=02&amp;f=71&amp;t=85703&amp;qpid=485899" title="Reply directly to this post"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_quote.gif" alt="Quote Post" border="0"></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- -->
+	</td>
+</tr>
+</tbody></table>
+<!-- -->
+<table class="ipbtable" cellspacing="1">
+	<tbody><tr>
+		<td class="row2" valign="middle" width="1%">
+			<a name="entry486011"></a>
+			
+				<div style="cursor: pointer;" id="post-member-486011" class="popmenubutton-new-out">
+					<span class="normalname">
+	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/user-offline.png" alt="" border="0"><a href="http://forums.nvidia.com/index.php?showuser=46425">MisterAnderson42</a></span>
+				</div>
+				<!-- -->
+				<div class="popupmenu-new" id="post-member-486011_menu" style="display: none; width: 230px; position: absolute; left: 0px; top: 0px;">
+					<div class="popupmenu-item-last">
+						
+						<div style="float: right;">
+							<div class="pp-image-thumb-wrap">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pp-blank-thumb.png" alt="" height="50" width="50">
+							</div>
+							
+								<div style="margin-top: 5px; margin-left: 6px;">
+									<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rating_0_mini.gif" alt="Rating: 0" style="vertical-align: middle;" border="0">
+								</div>
+							
+						</div>
+						<div class="popupmenu-item">
+							
+	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/gender_mystery.png" id="pp-entry-gender-img-46425" alt="" border="0">
+ <a href="http://forums.nvidia.com/index.php?showuser=46425">View Member Profile</a>
+						</div>
+						
+						
+						
+							<div class="popupmenu-item">
+								
+									<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/friend_add_small.png" alt="" border="0"> <a href="#" onclick='friends_pop("&amp;do=add&amp;member_id=46425&amp;md5check=414ca48a4f7712003aaf8db7ea07a149"); return false'>Add as Friend</a>
+								
+							</div>
+							<div class="popupmenu-item">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/send_pm_small.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Msg&amp;CODE=4&amp;MID=46425">Send Message</a>
+							</div>
+							<div class="popupmenu-item">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/find_posts.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Search&amp;CODE=gettopicsuser&amp;mid=46425">Find Member's Topics</a>
+							</div>
+							<div class="popupmenu-item-last">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/find_posts.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Search&amp;CODE=getalluser&amp;mid=46425">Find Member's Posts</a>
+							</div>
+						
+					</div>
+				</div>
+				<!-- -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-486011", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/to_post_off.gif" alt="post" style="padding-bottom: 2px;" border="0"> Jan 4 2009, 01:15 PM</span>
+			</div>
+			<!-- -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=85703&amp;view=findpost&amp;p=486011" onclick="link_to_post(486011); return false;">#2</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="post1" valign="top">
+        	<span class="postdetails">
+				
+        			<br><br>
+				
+        		<br>
+        		<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><br><br>
+        		Group: Extranet Users<br>
+        		Posts: 1,725<br>
+        		Joined: 23-March 07<br>
+        		
+        		Member No.: 46,425<br>
+				
+					
+Org.: Iowa State University<br>
+				
+				<br>
+        		 
+        	</span><br>
+        	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/spacer.gif" alt="" height="1" width="160"><br> 
+       </td>
+       <td class="post1" id="post-main-486011" valign="top" width="100%">
+			<!-- -->
+			<div class="postcolor" id="post-486011">
+				The CUDA_COMPILE macro shouldn't be used directly. <br><br>Instead
+of ADD_EXECUTABLE, you should be using CUDA_ADD_EXECUTABLE, it will
+identify whether to use nvcc or g++ to compile based on the extension
+of the source file.<!-- -->
+			 </div>
+			
+			
+			<!-- -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style="text-align: left;"><a href="javascript:scroll(0,0);"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_up.gif" alt="Go to the top of the page" border="0"></a><a href="http://forums.nvidia.com/index.php?act=report&amp;t=85703&amp;p=486011&amp;st=0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_report.gif" alt="Report Post" border="0"></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(486011); return false;" title="Toggle multiquote addition"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_mq_add.gif" name="mad_486011" alt="+"></a><a href="http://forums.nvidia.com/index.php?act=Post&amp;CODE=02&amp;f=71&amp;t=85703&amp;qpid=486011" title="Reply directly to this post"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_quote.gif" alt="Quote Post" border="0"></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- -->
+	</td>
+</tr>
+</tbody></table>
+<!-- -->
+<table class="ipbtable" cellspacing="1">
+	<tbody><tr>
+		<td class="row2" valign="middle" width="1%">
+			<a name="entry486089"></a>
+			
+				<div style="cursor: pointer;" id="post-member-486089" class="popmenubutton-new-out">
+					<span class="normalname">
+	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/user-offline.png" alt="" border="0"><a href="http://forums.nvidia.com/index.php?showuser=117864">phillicl</a></span>
+				</div>
+				<!-- -->
+				<div class="popupmenu-new" id="post-member-486089_menu" style="display: none; width: 230px; position: absolute; left: 0px; top: 0px;">
+					<div class="popupmenu-item-last">
+						
+						<div style="float: right;">
+							<div class="pp-image-thumb-wrap">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pp-blank-thumb.png" alt="" height="50" width="50">
+							</div>
+							
+								<div style="margin-top: 5px; margin-left: 6px;">
+									<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rating_0_mini.gif" alt="Rating: 0" style="vertical-align: middle;" border="0">
+								</div>
+							
+						</div>
+						<div class="popupmenu-item">
+							
+	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/gender_mystery.png" id="pp-entry-gender-img-117864" alt="" border="0">
+ <a href="http://forums.nvidia.com/index.php?showuser=117864">View Member Profile</a>
+						</div>
+						
+						
+						
+							<div class="popupmenu-item">
+								
+									<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/friend_add_small.png" alt="" border="0"> <a href="#" onclick='friends_pop("&amp;do=add&amp;member_id=117864&amp;md5check=414ca48a4f7712003aaf8db7ea07a149"); return false'>Add as Friend</a>
+								
+							</div>
+							<div class="popupmenu-item">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/send_pm_small.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Msg&amp;CODE=4&amp;MID=117864">Send Message</a>
+							</div>
+							<div class="popupmenu-item">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/find_posts.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Search&amp;CODE=gettopicsuser&amp;mid=117864">Find Member's Topics</a>
+							</div>
+							<div class="popupmenu-item-last">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/find_posts.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Search&amp;CODE=getalluser&amp;mid=117864">Find Member's Posts</a>
+							</div>
+						
+					</div>
+				</div>
+				<!-- -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-486089", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/to_post_off.gif" alt="post" style="padding-bottom: 2px;" border="0"> Jan 4 2009, 05:10 PM</span>
+			</div>
+			<!-- -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=85703&amp;view=findpost&amp;p=486089" onclick="link_to_post(486089); return false;">#3</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="post2" valign="top">
+        	<span class="postdetails">
+				
+					<a href="http://forums.nvidia.com/index.php?showuser=117864" title="View Member Profile"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/Whale.jpg" alt="" border="0"></a><br><br>
+				
+        		<br>
+        		<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><br><br>
+        		Group: Members<br>
+        		Posts: 5<br>
+        		Joined: 3-September 08<br>
+        		
+        		Member No.: 117,864<br>
+				
+				<br>
+        		 
+        	</span><br>
+        	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/spacer.gif" alt="" height="1" width="160"><br> 
+       </td>
+       <td class="post2" id="post-main-486089" valign="top" width="100%">
+			<!-- -->
+			<div class="postcolor" id="post-486089">
+				<!-- --><div class="quotetop">QUOTE (MisterAnderson42 @ Jan 4 2009, 08:15 AM) <a href="http://forums.nvidia.com/index.php?act=findpost&amp;pid=486011"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/post_snapback.gif" alt="*" border="0"></a></div><div class="quotemain"><!-- -->The CUDA_COMPILE macro shouldn't be used directly. <br><br>Instead
+of ADD_EXECUTABLE, you should be using CUDA_ADD_EXECUTABLE, it will
+identify whether to use nvcc or g++ to compile based on the extension
+of the source file.<!-- --></div><!-- --><br><br>Yes, that definitely made a big difference!  The trouble now is that I am getting a duplicated symbol when linking the files.<br><br>My "src/CMakeLists.txt" now looks like.<br><br><br><div class="codetop">CODE</div><div class="codemain" style="overflow: auto; height: 200px; white-space: pre;"><br># Add current directory to the nvcc include line.<br>CUDA_INCLUDE_DIRECTORIES(<br>  ${CMAKE_CURRENT_SOURCE_DIR}<br> ${FOUND_CUT_INCLUDE}<br>)<br><br>INCLUDE_DIRECTORIES( ${FOUND_CUDA_NVCC_INCLUDE} ${FOUND_CUT_INCLUDE})<br><br>############################################################<br>##################<br># Use one executable only.<br>CUDA_ADD_EXECUTABLE(test<br>  cppIntegration.cu<br>  cppIntegration_kernel.cu<br>  main.cpp<br>  cppIntegration_gold.cpp<br>  )</div><br><br>Here is my error!<br><br>Linking CXX executable test<br>cd
+/Users/phillicl/miniMD/IncrementalCUDATest/src/src &amp;&amp;
+/sw/bin/cmake -E cmake_link_script CMakeFiles/test.dir/link.txt
+--verbose=1<br>/usr/bin/c++ -Wl,-search_paths_first
+-headerpad_max_install_names -fPIC
+CMakeFiles/test.dir/cuda/cppIntegration.cu_test_generated.o
+CMakeFiles/test.dir/cuda/cppIntegration_kernel.cu_test_generated.o
+CMakeFiles/test.dir/main.o CMakeFiles/test.dir/cppIntegration_gold.o -o
+test /usr/local/cuda/lib/libcuda.dylib
+/usr/local/cuda/lib/libcudart.dylib <br>ld: duplicate symbol
+___globfunc__Z6kernelPi in
+CMakeFiles/test.dir/cuda/cppIntegration_kernel.cu_test_generated.o and
+CMakeFiles/test.dir/cuda/cppIntegration.cu_test_generated.o<br><br><br>
+				
+				
+				<!-- -->
+			</div>
+			
+			
+			<!-- -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style="text-align: left;"><a href="javascript:scroll(0,0);"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_up.gif" alt="Go to the top of the page" border="0"></a><a href="http://forums.nvidia.com/index.php?act=report&amp;t=85703&amp;p=486089&amp;st=0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_report.gif" alt="Report Post" border="0"></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(486089); return false;" title="Toggle multiquote addition"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_mq_add.gif" name="mad_486089" alt="+"></a><a href="http://forums.nvidia.com/index.php?act=Post&amp;CODE=02&amp;f=71&amp;t=85703&amp;qpid=486089" title="Reply directly to this post"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_quote.gif" alt="Quote Post" border="0"></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- -->
+	</td>
+</tr>
+</tbody></table>
+<!-- -->
+<table class="ipbtable" cellspacing="1">
+	<tbody><tr>
+		<td class="row2" valign="middle" width="1%">
+			<a name="entry486097"></a>
+			
+				<div style="cursor: pointer;" id="post-member-486097" class="popmenubutton-new-out">
+					<span class="normalname">
+	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/user-offline.png" alt="" border="0"><a href="http://forums.nvidia.com/index.php?showuser=46425">MisterAnderson42</a></span>
+				</div>
+				<!-- -->
+				<div class="popupmenu-new" id="post-member-486097_menu" style="display: none; width: 230px; position: absolute; left: 0px; top: 0px;">
+					<div class="popupmenu-item-last">
+						
+						<div style="float: right;">
+							<div class="pp-image-thumb-wrap">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pp-blank-thumb.png" alt="" height="50" width="50">
+							</div>
+							
+								<div style="margin-top: 5px; margin-left: 6px;">
+									<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rating_0_mini.gif" alt="Rating: 0" style="vertical-align: middle;" border="0">
+								</div>
+							
+						</div>
+						<div class="popupmenu-item">
+							
+	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/gender_mystery.png" id="pp-entry-gender-img-46425" alt="" border="0">
+ <a href="http://forums.nvidia.com/index.php?showuser=46425">View Member Profile</a>
+						</div>
+						
+						
+						
+							<div class="popupmenu-item">
+								
+									<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/friend_add_small.png" alt="" border="0"> <a href="#" onclick='friends_pop("&amp;do=add&amp;member_id=46425&amp;md5check=414ca48a4f7712003aaf8db7ea07a149"); return false'>Add as Friend</a>
+								
+							</div>
+							<div class="popupmenu-item">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/send_pm_small.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Msg&amp;CODE=4&amp;MID=46425">Send Message</a>
+							</div>
+							<div class="popupmenu-item">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/find_posts.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Search&amp;CODE=gettopicsuser&amp;mid=46425">Find Member's Topics</a>
+							</div>
+							<div class="popupmenu-item-last">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/find_posts.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Search&amp;CODE=getalluser&amp;mid=46425">Find Member's Posts</a>
+							</div>
+						
+					</div>
+				</div>
+				<!-- -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-486097", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/to_post_off.gif" alt="post" style="padding-bottom: 2px;" border="0"> Jan 4 2009, 05:36 PM</span>
+			</div>
+			<!-- -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=85703&amp;view=findpost&amp;p=486097" onclick="link_to_post(486097); return false;">#4</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="post1" valign="top">
+        	<span class="postdetails">
+				
+        			<br><br>
+				
+        		<br>
+        		<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><br><br>
+        		Group: Extranet Users<br>
+        		Posts: 1,725<br>
+        		Joined: 23-March 07<br>
+        		
+        		Member No.: 46,425<br>
+				
+					
+Org.: Iowa State University<br>
+				
+				<br>
+        		 
+        	</span><br>
+        	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/spacer.gif" alt="" height="1" width="160"><br> 
+       </td>
+       <td class="post1" id="post-main-486097" valign="top" width="100%">
+			<!-- -->
+			<div class="postcolor" id="post-486097">
+The SDK examples "#include" the _kernel files into the normal .cu file.
+So you either need to remove that #include or take the
+cppIntegration_kernel.cu off of the src list in CMakeLists.txt.<!-- -->
+			 </div>
+			
+			
+			<!-- -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style="text-align: left;"><a href="javascript:scroll(0,0);"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_up.gif" alt="Go to the top of the page" border="0"></a><a href="http://forums.nvidia.com/index.php?act=report&amp;t=85703&amp;p=486097&amp;st=0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_report.gif" alt="Report Post" border="0"></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(486097); return false;" title="Toggle multiquote addition"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_mq_add.gif" name="mad_486097" alt="+"></a><a href="http://forums.nvidia.com/index.php?act=Post&amp;CODE=02&amp;f=71&amp;t=85703&amp;qpid=486097" title="Reply directly to this post"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_quote.gif" alt="Quote Post" border="0"></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- -->
+	</td>
+</tr>
+</tbody></table>
+<!-- -->
+<table class="ipbtable" cellspacing="1">
+	<tbody><tr>
+		<td class="row2" valign="middle" width="1%">
+			<a name="entry486142"></a>
+			
+				<div style="cursor: pointer;" id="post-member-486142" class="popmenubutton-new-out">
+					<span class="normalname">
+	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/user-offline.png" alt="" border="0"><a href="http://forums.nvidia.com/index.php?showuser=117864">phillicl</a></span>
+				</div>
+				<!-- -->
+				<div class="popupmenu-new" id="post-member-486142_menu" style="display: none; width: 230px; position: absolute; left: 0px; top: 0px;">
+					<div class="popupmenu-item-last">
+						
+						<div style="float: right;">
+							<div class="pp-image-thumb-wrap">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pp-blank-thumb.png" alt="" height="50" width="50">
+							</div>
+							
+								<div style="margin-top: 5px; margin-left: 6px;">
+									<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rating_0_mini.gif" alt="Rating: 0" style="vertical-align: middle;" border="0">
+								</div>
+							
+						</div>
+						<div class="popupmenu-item">
+							
+	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/gender_mystery.png" id="pp-entry-gender-img-117864" alt="" border="0">
+ <a href="http://forums.nvidia.com/index.php?showuser=117864">View Member Profile</a>
+						</div>
+						
+						
+						
+							<div class="popupmenu-item">
+								
+									<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/friend_add_small.png" alt="" border="0"> <a href="#" onclick='friends_pop("&amp;do=add&amp;member_id=117864&amp;md5check=414ca48a4f7712003aaf8db7ea07a149"); return false'>Add as Friend</a>
+								
+							</div>
+							<div class="popupmenu-item">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/send_pm_small.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Msg&amp;CODE=4&amp;MID=117864">Send Message</a>
+							</div>
+							<div class="popupmenu-item">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/find_posts.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Search&amp;CODE=gettopicsuser&amp;mid=117864">Find Member's Topics</a>
+							</div>
+							<div class="popupmenu-item-last">
+								<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/find_posts.png" alt="" border="0"> <a href="http://forums.nvidia.com/index.php?act=Search&amp;CODE=getalluser&amp;mid=117864">Find Member's Posts</a>
+							</div>
+						
+					</div>
+				</div>
+				<!-- -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-486142", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/to_post_off.gif" alt="post" style="padding-bottom: 2px;" border="0"> Jan 4 2009, 08:33 PM</span>
+			</div>
+			<!-- -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=85703&amp;view=findpost&amp;p=486142" onclick="link_to_post(486142); return false;">#5</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="post2" valign="top">
+        	<span class="postdetails">
+				
+					<a href="http://forums.nvidia.com/index.php?showuser=117864" title="View Member Profile"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/Whale.jpg" alt="" border="0"></a><br><br>
+				
+        		<br>
+        		<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/pip.gif" alt="*" border="0"><br><br>
+        		Group: Members<br>
+        		Posts: 5<br>
+        		Joined: 3-September 08<br>
+        		
+        		Member No.: 117,864<br>
+				
+				<br>
+        		 
+        	</span><br>
+        	<img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/spacer.gif" alt="" height="1" width="160"><br> 
+       </td>
+       <td class="post2" id="post-main-486142" valign="top" width="100%">
+			<!-- -->
+			<div class="postcolor" id="post-486142">
+				NM,<br><br>Fixed my own problem.<br>The
+issue was that the kernel is included in the other *.cu file and should
+not have been part of the CUDA_ADD_EXECUTABLE command.<br><br>And then
+I needed to link to the libcutil.a library (which on my system is
+located in a different part of the directory structure than the
+cutil.h. The latter is in common/inc. The former in in lib)<br><br>It compiles!  Thanks for your help.<br><br><br>
+				
+				
+				<!-- -->
+			</div>
+			
+			
+			<!-- -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style="text-align: left;"><a href="javascript:scroll(0,0);"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_up.gif" alt="Go to the top of the page" border="0"></a><a href="http://forums.nvidia.com/index.php?act=report&amp;t=85703&amp;p=486142&amp;st=0"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_report.gif" alt="Report Post" border="0"></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(486142); return false;" title="Toggle multiquote addition"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_mq_add.gif" name="mad_486142" alt="+"></a><a href="http://forums.nvidia.com/index.php?act=Post&amp;CODE=02&amp;f=71&amp;t=85703&amp;qpid=486142" title="Reply directly to this post"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/p_quote.gif" alt="Quote Post" border="0"></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- -->
+	</td>
+</tr>
+</tbody></table>
+<!-- -->
+
+<!-- -->
+<div class="barc">
+	<div style="padding: 5px 5px 0pt 0pt; float: right;"><a href="http://forums.nvidia.com/index.php?showtopic=85703&amp;view=old" style="text-decoration: none;">« Next Oldest</a>
+	· <a href="http://forums.nvidia.com/index.php?showforum=71" style="font-weight: bold; text-decoration: none;">CUDA Programming and Development</a>
+	· <a href="http://forums.nvidia.com/index.php?showtopic=85703&amp;view=new" style="text-decoration: none;">Next Newest »</a></div>
+	<div>
+		<form action="http://forums.nvidia.com/index.php?" method="post" name="search">
+			<input name="forums" value="71" type="hidden">
+			<input name="topic" value="85703" type="hidden">
+			<input name="act" value="Search" type="hidden">
+			<input name="CODE" value="searchtopic" type="hidden">
+			<input size="25" name="keywords" class="searchinput" value="Enter Keywords" onfocus="this.value = '';" type="text">&nbsp;
+			<input value="Search Topic" class="button" type="submit">
+		</form>
+	</div>
+</div>
+</div>
+<br>
+<!-- -->
+
+<table class="ipbtable" cellspacing="0">
+	<tbody><tr>
+		<td style="padding-left: 0px;" nowrap="nowrap" valign="middle" width="30%"><div></div></td>
+		<td class="nopad" style="padding: 5px 0px;" align="right" width="70%"><a href="javascript:ShowHide('qr_open','qr_closed');" title="Toggle Fast Reply Window" accesskey="f"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/t_qr.gif" alt="Fast Reply" border="0"></a><a href="http://forums.nvidia.com/index.php?act=post&amp;do=reply_post&amp;f=71&amp;t=85703"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/t_reply.gif" alt="Reply to this topic" border="0"></a><a href="http://forums.nvidia.com/index.php?act=post&amp;do=new_post&amp;f=71" title="Start a new topic"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/t_new.gif" alt="Start new topic" border="0"></a></td>
+	</tr>
+</tbody></table>
+<!-- -->
+<div id="qr_open" style="display: none; position: relative;">
+<br>
+<form name="REPLIER" action="http://forums.nvidia.com/index.php?" method="post">
+<input name="act" value="Post" type="hidden">
+<input name="CODE" value="03" type="hidden">
+<input name="f" value="71" type="hidden">
+<input name="t" value="85703" type="hidden">
+<input name="st" value="0" type="hidden">
+<input name="auth_key" value="414ca48a4f7712003aaf8db7ea07a149" type="hidden">
+<input name="fast_reply_used" value="1" type="hidden">
+<div class="borderwrap">
+	<div class="maintitle"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/nav_m.gif" alt="&gt;" border="0" height="8" width="8">&nbsp;Fast Reply</div>
+	<div style="padding: 6px;" class="row2" align="center">
+		<div id="fast-reply-controls" style="margin: 0pt auto; padding: 6px; width: 75%;" class="rte-buttonbar" align="center">
+		<table cellpadding="2" cellspacing="0" width="100%">
+		<tbody><tr>
+		 <td align="left" nowrap="nowrap" width="1%">
+		  <table cellpadding="0" cellspacing="0" width="100%">
+		   <tbody><tr>
+		     <td><div class="rte-normal" id="fast-reply_cmd_bold"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rte-bold.png" alt="Bold" title="Bold"></div></td>
+		     <td><div class="rte-normal" id="fast-reply_cmd_italic"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rte-italic.png" alt="Italic" title="Italic"></div></td>
+		     <td><div class="rte-normal" id="fast-reply_cmd_underline"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rte-underlined.png" alt="Underline" title="Underline"></div></td>
+		   	 <td><div class="rte-normal" id="fast-reply_cmd_createlink"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rte-link-button.png" alt="Insert Link" title="Insert Link"></div></td>
+			 <td><div class="rte-normal" id="fast-reply_cmd_insertimage"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rte-image-button.png" alt="Insert Image" title="Insert Image"></div></td>
+			 <td><div class="rte-normal" id="fast-reply_cmd_emoticon"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rte-emo-button.png" alt="Emoticons" title="Emoticons"></div></td>
+		     <td><div class="rte-normal" id="fast-reply_cmd_ipb_quote"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rte-quote-button.png" alt="Wrap in quote tags" title="Wrap in quote tags"></div></td>
+			 <td><div class="rte-normal" id="fast-reply_cmd_ipb_code"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rte-code-button.png" alt="Wrap in code tags" title="Wrap in code tags"></div></td>
+		</tr>
+		  </tbody></table>
+		 </td>
+		 <td width="98%">&nbsp;</td>
+		 <td align="right" nowrap="nowrap" width="1%">
+			<table cellpadding="0" cellspacing="0" width="100%">
+	           <tbody><tr>
+	               	<td>
+					   <div class="rte-normal" id="fast-reply_resize_up" style="margin: 0px; padding: 0px;"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rte-resize-up.gif" alt=""></div>
+					   <div class="rte-normal" id="fast-reply_resize_down" style="margin: 0px; padding: 1px 0px 0px;"><img src="FindCuda.cmake%20Macro%20Problem%20-%20NVIDIA%20Forums_files/rte-resize-down.gif" alt="" title=""></div>
+				   </td>
+	           </tr>
+	          </tbody></table>
+		 </td>
+		</tr>
+		</tbody></table>
+	   <div style="padding-bottom: 8px;">
+	    	<textarea style="margin: 0px; padding: 4px; width: 98%; height: 150px;" tabindex="1" name="Post" id="fast-reply_textarea" class="rte-iframe" cols="80" rows="15"></textarea>
+	   </div>
+	   <div>
+			<div>
+				
+					<input name="enabletrack" value="1" class="checkbox" type="checkbox">&nbsp;Enable email notification of replies |
+				
+				<input name="enableemo" value="yes" class="checkbox" checked="checked" type="checkbox">&nbsp;Enable Smilies |
+				<input name="enablesig" value="yes" class="checkbox" checked="checked" type="checkbox">&nbsp;Enable Signature
+			</div>
+		    <div style="margin-top: 3px;">
+				<input name="submit" value="Add Reply" class="button" tabindex="2" accesskey="s" type="submit"> &nbsp;
+				<input name="preview" value="More Options" class="button" type="submit"> &nbsp;
+				<input name="qrc" onclick="ShowHide('qr_open','qr_closed');" value="Close Fast Reply" class="button" type="button">
+			</div>
+	   </div>
+	</div>
+	</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+<!--
+IPS_Lite_Editor[ 'fast-reply' ] = new ips_text_editor_lite( 'fast-reply' );
+IPS_Lite_Editor[ 'fast-reply' ].init();
+IPS_Lite_Editor[ 'fast-reply' ].text_obj.style.height = '150px';
+-->
+</script>
+<!-- -->
+<br>
+<div class="borderwrap">
+	<div class="row2" style="padding: 5px;">
+		
+		<div align="right"><form onsubmit="if(document.jumpmenu.f.value == -1){return false;}" action="http://forums.nvidia.com/index.php?act=SF" method="get" name="jumpmenu">
+			             <input name="act" value="SF" type="hidden">
+<input name="s" value="" type="hidden">
+			             <select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ document.jumpmenu.submit() }" class="dropdown">
+			             <optgroup label="Site Jump">
+			              <option value="sj_home">Forum Home</option>
+			              <option value="sj_search">Search</option>
+			              <option value="sj_help">Help</option>
+			             </optgroup>
+			             <optgroup label="Forum Jump"><option value="6">NVIDIA</option>
+<option value="7">&nbsp;&nbsp;|-- Announcements and News</option>
+<option value="35">&nbsp;&nbsp;|-- Site Questions &amp; Comments</option>
+<option value="8">&nbsp;&nbsp;|-- Attachment / Post Testing Area</option>
+<option value="32">nZone</option>
+<option value="16">&nbsp;&nbsp;|-- Games and Other Applications</option>
+<option value="17">&nbsp;&nbsp;|---- General Game Discussion</option>
+<option value="18">&nbsp;&nbsp;|---- Shooter Showdown</option>
+<option value="19">&nbsp;&nbsp;|---- Alphabet Soup -- MMORPG, MMOG, RPG</option>
+<option value="20">&nbsp;&nbsp;|---- Strategy</option>
+<option value="21">&nbsp;&nbsp;|---- Sports</option>
+<option value="22">&nbsp;&nbsp;|---- Simulations</option>
+<option value="23">&nbsp;&nbsp;|---- ...and more</option>
+<option value="24">&nbsp;&nbsp;|-- Hardware</option>
+<option value="25">&nbsp;&nbsp;|---- General Hardware Discussion</option>
+<option value="39">&nbsp;&nbsp;|---- SLI</option>
+<option value="41">&nbsp;&nbsp;|---- Quad SLI</option>
+<option value="33">&nbsp;&nbsp;|---- GeForce Drivers</option>
+<option value="26">&nbsp;&nbsp;|---- GeForce GeWhiz</option>
+<option value="40">&nbsp;&nbsp;|---- 3D Stereo</option>
+<option value="34">&nbsp;&nbsp;|---- nForce Mobos</option>
+<option value="27">&nbsp;&nbsp;|---- Pimp My Rig</option>
+<option value="28">&nbsp;&nbsp;|---- Peripherals</option>
+<option value="29">&nbsp;&nbsp;|-- Community</option>
+<option value="30">&nbsp;&nbsp;|---- Events</option>
+<option value="31">&nbsp;&nbsp;|---- Off Topic</option>
+<option value="62">CUDA GPU Computing</option>
+<option value="63">&nbsp;&nbsp;|-- CUDA Announcements and News</option>
+<option value="64">&nbsp;&nbsp;|-- General CUDA GPU Computing Discussion</option>
+<option value="68">&nbsp;&nbsp;|-- CUDA on Linux</option>
+<option value="70">&nbsp;&nbsp;|-- CUDA on Windows XP</option>
+<option value="75">&nbsp;&nbsp;|-- CUDA on Mac OS X</option>
+<option value="71" selected="selected">&nbsp;&nbsp;|-- CUDA Programming and Development</option>
+<option value="72">&nbsp;&nbsp;|-- CUDA Employment Postings</option>
+<option value="124">&nbsp;&nbsp;|-- CUDA on Vista</option>
+<option value="127">&nbsp;&nbsp;|-- CUDA Contests</option>
+<option value="5">Gelato</option>
+<option value="4">&nbsp;&nbsp;|-- Gelato Announcements and News</option>
+<option value="3">&nbsp;&nbsp;|-- Gelato General Discussion</option>
+<option value="36">NVSG (NVIDIA Scene Graph)</option>
+<option value="37">&nbsp;&nbsp;|-- NVSG Announcements &amp; News</option>
+<option value="38">&nbsp;&nbsp;|-- NVSG General Discussion</option>
+<option value="132">&nbsp;&nbsp;|-- NVSG 5 Beta Discussions</option>
+<option value="109">NVISION Forums</option>
+<option value="110">&nbsp;&nbsp;|-- GeForce LAN</option>
+<option value="112">&nbsp;&nbsp;|---- News &amp; Announcements</option>
+<option value="113">&nbsp;&nbsp;|---- BYOC</option>
+<option value="114">&nbsp;&nbsp;|---- Tournaments</option>
+<option value="115">&nbsp;&nbsp;|---- CLUB SLI</option>
+<option value="116">&nbsp;&nbsp;|---- Travel &amp; Ride Sharing</option>
+<option value="117">&nbsp;&nbsp;|---- Miscellaneous Topics</option>
+<option value="111">&nbsp;&nbsp;|-- NVScene</option>
+<option value="118">&nbsp;&nbsp;|---- News &amp; Announcements</option>
+<option value="119">&nbsp;&nbsp;|---- Demoscene</option>
+<option value="120">&nbsp;&nbsp;|---- Game Modding</option>
+<option value="121">&nbsp;&nbsp;|---- Machinima</option>
+<option value="122">&nbsp;&nbsp;|---- Travel &amp; Ride Sharing</option>
+<option value="123">&nbsp;&nbsp;|---- Miscellaneous Topics</option>
+<option value="81">CUDA GPU 컴퓨팅 - 한국</option>
+<option value="82">&nbsp;&nbsp;|-- CUDA 뉴스 및 공지</option>
+<option value="83">&nbsp;&nbsp;|-- CUDA GPU 컴퓨팅 관련 일반토론</option>
+<option value="84">&nbsp;&nbsp;|-- 리눅스용 CUDA</option>
+<option value="85">&nbsp;&nbsp;|-- 윈도우즈 XP용 CUDA</option>
+<option value="86">&nbsp;&nbsp;|-- CUDA 프로그래밍 및 개발</option>
+<option value="87">&nbsp;&nbsp;|-- CUDA 채용 공고</option>
+<option value="106">&nbsp;&nbsp;|-- 맥 OS X에서의 CUDA</option>
+</optgroup>
+</select>&nbsp;<input value="Go" class="button" type="submit"></form></div>
+	</div>
+</div>
+<br>
+<!-- -->
+<div style="display: none;" id="topicoptionsjs">
+ <a name="topicdisplay"></a>
+ <div class="borderwrap">
+  <div class="bar" style="padding: 5px; text-align: center;">
+  <strong>Display Mode:</strong> <strong><em><a href="http://forums.nvidia.com/index.php?showtopic=85703&amp;mode=linear">Standard</a></em></strong> ·
+  <a href="http://forums.nvidia.com/index.php?showtopic=85703&amp;mode=linearplus">Switch to: Linear+</a> ·
+  <a href="http://forums.nvidia.com/index.php?showtopic=85703&amp;mode=threaded">Switch to: Outline</a>
+  </div>
+ </div>
+ <br>
+ <a name="topicoptions"></a>
+ <div class="borderwrap">
+  <div class="bar" style="padding: 5px; text-align: center;">
+  <a href="http://forums.nvidia.com/index.php?act=usercp&amp;CODE=start_subs&amp;method=topic&amp;tid=85703">Track this topic</a> ·
+  <a href="http://forums.nvidia.com/index.php?act=Forward&amp;f=71&amp;t=85703">Email this topic</a> ·
+  <a href="http://forums.nvidia.com/index.php?act=Print&amp;client=printer&amp;f=71&amp;t=85703">Print this topic</a> ·
+  <a href="http://forums.nvidia.com/index.php?act=usercp&amp;CODE=start_subs&amp;method=forum&amp;fid=71">Subscribe to this forum</a>
+  </div>
+ </div>
+ <br>
+
+</div>
+<script type="text/javascript">
+//<![CDATA[
+document.getElementById('topicoptionsjs').style.display = 'none';
+ 
+// Scroll to PID?
+topic_scroll_to_post( parseInt("0") );
+//]]>
+</script>
+<table id="gfooter" cellspacing="0">
+	<tbody><tr>
+		<td width="45%"> <form action="http://forums.nvidia.com/index.php?setlanguage=1" name="langselectorbox" method="post">
+	<input name="langurlbits" value="showtopic=85703&amp;cal_id=0" type="hidden">
+	<select name="langid" onchange="chooselang(this)">
+		<optgroup label="Language">
+			
+<option value="en" selected="selected">English</option>
+		</optgroup>
+	</select>
+</form></td>
+		<td align="center" nowrap="nowrap" width="10%">
+			Copyright � 2008 NVIDIA� Corporation. &nbsp;<a href="http://forums.nvidia.com/index.php?act=boardrules">Terms of Use</a> | 
+			<a href="http://www.nvidia.com/object/legal_info.html">Legal Info</a> | 
+			<a href="http://www.nvidia.com/object/privacy_policy.html">Privacy Policy</a>
+                  </td>
+		<td align="right" nowrap="nowrap" width="45%">Time is now: 26th January 2009 - 03:20 PM</td>
+	</tr>
+</tbody></table>
+<script type="text/javascript">
+//<![CDATA[
+menu_do_global_init();
+show_inline_messages();
+// Uncomment this to fix IE png images
+// causes page slowdown, and some missing images occasionally
+// if ( is_ie )
+// {
+//	 ie_fix_png();
+// }
+
+//]]>
+</script>
+ 
+
+</div>
+</body></html>
